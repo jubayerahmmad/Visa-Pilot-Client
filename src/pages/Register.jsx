@@ -6,7 +6,15 @@ import { Link } from "react-router-dom";
 const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const newUser = { name, email, password, photo };
+    console.log(newUser);
   };
 
   const handleGoogleLogin = () => {
