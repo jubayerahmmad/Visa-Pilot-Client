@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import logo from "../assets/visapilot-logo.png";
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-gray-50 p-10">
+    <footer className="footer footer-center bg-gray-100 p-10">
       <aside>
         <img className="w-48" src={logo} alt="" />
 
@@ -15,10 +15,10 @@ const Footer = () => {
       <nav>
         <div className="grid grid-flow-col gap-4 text-gray-600">
           <a className="cursor-pointer hover:text-[#3B9DF8]">
-            <FaInstagram size={32}></FaInstagram>
+            <FaFacebook size={32}></FaFacebook>
           </a>
           <a className="cursor-pointer hover:text-[#3B9DF8]">
-            <FaFacebook size={32}></FaFacebook>
+            <FaInstagram size={32}></FaInstagram>
           </a>
           <a className="cursor-pointer hover:text-[#3B9DF8]">
             <FaLinkedin size={32}></FaLinkedin>

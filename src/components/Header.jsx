@@ -2,12 +2,13 @@ import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/visapilot-logo.png";
 import { Link, NavLink } from "react-router-dom";
+import { CgClose } from "react-icons/cg";
 
 const Header = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] font-montserrat bg-gray-50">
+    <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] font-montserrat bg-gray-100">
       <Link to="/">
         <img src={logo} alt="logo" className="w-32 object-cover" />
       </Link>
@@ -31,15 +32,22 @@ const Header = () => {
 
       <div className="items-center gap-[10px] flex">
         <Link to="/register">
-          <button className="py-[8px] font-semibold text-lg px-[16px] rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex hidden">
+          <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
             Register
           </button>
         </Link>
 
-        <CiMenuFries
-          className="text-[1.8rem] mr-1 cursor-pointer lg:hidden flex"
-          onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
-        />
+        {mobileSidebarOpen ? (
+          <CgClose
+            className="text-3xl mr-1 cursor-pointer lg:hidden flex"
+            onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+          />
+        ) : (
+          <CiMenuFries
+            className="text-3xl mr-1 cursor-pointer lg:hidden flex"
+            onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+          />
+        )}
       </div>
 
       <aside
