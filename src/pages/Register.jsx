@@ -1,9 +1,17 @@
 import Lottie from "lottie-react";
 import registerAnimation from "../assets/register-animation.json";
 import { FaGoogle } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const { createUser, googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -13,13 +21,60 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    setError("");
+    // password validation
+    const lengthRegex = /^.{6,}$/;
+    if (!lengthRegex.test(password)) {
+      setError("Password Must be contain atleast 6 Characters");
+      return;
+    }
+    const uppercaseRegex = /[A-Z]/;
+    if (!uppercaseRegex.test(password)) {
+      setError("Password Must be contain atleast One Uppercase Letter");
+      return;
+    }
+    const lowercaseRegex = /[a-z]/;
+    if (!lowercaseRegex.test(password)) {
+      setError("Password Must be contain atleast One Lowercase Letter");
+      return;
+    }
+
     const newUser = { name, email, password, photo };
-    console.log(newUser);
+
+    createUser(email, password)
+      .then(() => {
+        const updatedInfo = { displayName: name, photoURL: photo };
+        updateProfile(auth.currentUser, updatedInfo)
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Registration Successfully Completed",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+            form.reset();
+          })
+          .catch((error) => {
+            setError(error.code);
+          });
+      })
+      .catch((error) => {
+        setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
+      });
   };
 
   const handleGoogleLogin = () => {
-    // Handle Google login logic here
-    console.log("Google login clicked");
+    googleLogin().then((result) => {
+      console.log(result);
+      Swal.fire({
+        icon: "success",
+        title: "Logged in Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/");
+    });
   };
 
   return (
@@ -99,6 +154,9 @@ const Register = () => {
                 className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
             </div>
+            {error && (
+              <p className="font-bold font-montserrat text-red-500">{error}</p>
+            )}
 
             {/* Register Button */}
             <div>
@@ -115,10 +173,11 @@ const Register = () => {
           {/* Login with Google Button */}
           <div className="mt-6 text-center">
             <button
+              type="submit"
               onClick={handleGoogleLogin}
               className="w-full btn btn-outline py-3 rounded-full"
             >
-              <FaGoogle></FaGoogle> Login with Google
+              <FaGoogle></FaGoogle>Register with Google
             </button>
           </div>
         </div>

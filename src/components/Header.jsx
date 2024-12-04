@@ -1,11 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/visapilot-logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
+import { AuthContext } from "../providers/AuthProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
+import Swal from "sweetalert2";
+import { FaUser } from "react-icons/fa6";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+  // console.log(user);
+
+  const handleLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "User Logged Out",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] font-montserrat bg-gray-100">
@@ -22,20 +45,80 @@ const Header = () => {
         <NavLink to="/addVisa">
           <li className="hover:text-[#3B9DF8]">Add Visa</li>
         </NavLink>
-        <NavLink to="/myAddedVisas">
-          <li className="hover:text-[#3B9DF8]">My Visa</li>
-        </NavLink>
-        <NavLink to="/myVisaApplicaton">
-          <li className="hover:text-[#3B9DF8]">My Applications</li>
-        </NavLink>
+        {user && (
+          <>
+            <NavLink to="/myAddedVisas">
+              <li className="hover:text-[#3B9DF8]">My Visa</li>
+            </NavLink>
+            <NavLink to="/myVisaApplicaton">
+              <li className="hover:text-[#3B9DF8]">My Applications</li>
+            </NavLink>
+          </>
+        )}
       </ul>
 
       <div className="items-center gap-[10px] flex">
-        <Link to="/register">
-          <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
-            Register
-          </button>
-        </Link>
+        {user ? (
+          <>
+            <div className="avatar cursor-pointer">
+              <div
+                className="ring-cyan-400 ring-offset-base-100 w-6 lg:w-10 rounded-full ring ring-offset-2"
+                data-tooltip-id="avatar-tooltip"
+                data-tooltip-offset={10}
+              >
+                <img
+                  src={`${user.photoURL ? user.photoURL : <FaUser></FaUser>}`}
+                />
+              </div>
+            </div>
+            {/* Tooltip with dropdown */}
+            <Tooltip
+              id="avatar-tooltip"
+              place="right"
+              className="z-50"
+              clickable={true}
+              effect="solid"
+              delayHide={100}
+              offset={{ right: 20 }}
+            >
+              <div className="bg-white border border-gray-200 rounded shadow-lg w-40 p-4">
+                <p className="text-gray-700 font-semibold mb-2">
+                  {user.displayName}
+                </p>
+                <Link>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-sm w-full lg:btn-md font-semibold text-lg  bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 "
+                  >
+                    Log Out
+                  </button>
+                </Link>
+              </div>
+            </Tooltip>
+            <Link>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-sm lg:btn-md font-semibold text-lg rounded-full bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 "
+              >
+                Log Out
+              </button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
+                Login
+              </button>
+            </Link>
+
+            <Link to="/register">
+              <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
+                Register
+              </button>
+            </Link>
+          </>
+        )}
 
         {mobileSidebarOpen ? (
           <CgClose
@@ -73,16 +156,16 @@ const Header = () => {
               Add Visa
             </li>
           </NavLink>
-          <NavLink to="/myAddedVisas">
-            <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
-              My Added Visa
-            </li>
-          </NavLink>
-          <NavLink to="/myVisaApplicaton">
-            <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
-              My Visa Applications
-            </li>
-          </NavLink>
+          {user && (
+            <>
+              <NavLink to="/myAddedVisas">
+                <li className="hover:text-[#3B9DF8]">My Visa</li>
+              </NavLink>
+              <NavLink to="/myVisaApplicaton">
+                <li className="hover:text-[#3B9DF8]">My Applications</li>
+              </NavLink>
+            </>
+          )}
         </ul>
       </aside>
     </nav>

@@ -1,10 +1,48 @@
 import Lottie from "lottie-react";
 import loginAnimation from "../assets/login-animation.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa6";
 const Login = () => {
+  const { loginUser, googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    // console.log({ email, password });
+    loginUser(email, password)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Logged in Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+        form.reset();
+      })
+      .catch((error) => {
+        setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin().then((result) => {
+      console.log(result);
+      Swal.fire({
+        icon: "success",
+        title: "Logged in Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/");
+    });
   };
 
   return (
@@ -58,6 +96,9 @@ const Login = () => {
                 </a>
               </label>
             </div>
+            {error && (
+              <p className="font-bold font-montserrat text-red-500">{error}</p>
+            )}
 
             {/* Login Button */}
             <div>
@@ -69,6 +110,18 @@ const Login = () => {
               </button>
             </div>
           </form>
+
+          <div className="divider">OR</div>
+          {/* Login with Google Button */}
+          <div className="mt-6 text-center">
+            <button
+              type="submit"
+              onClick={handleGoogleLogin}
+              className="w-full btn btn-outline py-3 rounded-full"
+            >
+              <FaGoogle></FaGoogle> Login with Google
+            </button>
+          </div>
         </div>
         {/* Lottie Animation */}
         <div className="lg:w-1/2">
