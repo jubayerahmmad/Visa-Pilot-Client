@@ -7,10 +7,12 @@ import AddVisa from "../pages/AddVisa";
 import MyVisaApplications from "../pages/MyVisaApplications";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import NotFound from "../components/NotFound";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",

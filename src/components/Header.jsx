@@ -17,13 +17,13 @@ const Header = () => {
           <li className="hover:text-[#3B9DF8]">Home</li>
         </NavLink>
         <NavLink to="/allVisas">
-          <li className="hover:text-[#3B9DF8]">All Visas</li>
+          <li className="hover:text-[#3B9DF8]">All Visa</li>
         </NavLink>
         <NavLink to="/addVisa">
           <li className="hover:text-[#3B9DF8]">Add Visa</li>
         </NavLink>
         <NavLink to="/myAddedVisas">
-          <li className="hover:text-[#3B9DF8]">My Visas</li>
+          <li className="hover:text-[#3B9DF8]">My Visa</li>
         </NavLink>
         <NavLink to="/myVisaApplicaton">
           <li className="hover:text-[#3B9DF8]">My Applications</li>
@@ -65,7 +65,7 @@ const Header = () => {
           </NavLink>
           <NavLink to="/allVisas">
             <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
-              All Visas
+              All Visa
             </li>
           </NavLink>
           <NavLink to="/addVisa">
@@ -75,7 +75,7 @@ const Header = () => {
           </NavLink>
           <NavLink to="/myAddedVisas">
             <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
-              My Added Visas
+              My Added Visa
             </li>
           </NavLink>
           <NavLink to="/myVisaApplicaton">
