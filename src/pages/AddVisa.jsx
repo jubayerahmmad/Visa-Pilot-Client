@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProvider";
 
 const AddVisa = () => {
+  const { user } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     countryImage: "",
     countryName: "",
@@ -13,6 +15,7 @@ const AddVisa = () => {
     fee: "",
     validity: "",
     applicationMethod: "",
+    userEmail: user?.email,
   });
 
   const handleInputChange = (e) => {
@@ -66,6 +69,7 @@ const AddVisa = () => {
           fee: "",
           validity: "",
           applicationMethod: "",
+          userEmail: user?.email,
         });
       });
   };
