@@ -1,43 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// card from ZENUI
-
 const VisaCards = ({ visa }) => {
-  console.log(visa);
-  const { countryName, countryImage, description } = visa;
+  const { countryName, countryImage, fee, visaType } = visa;
   return (
-    <div className="group [perspective:1000px] w-full h-[250px]">
-      <div className="relative w-full h-full transition-transform duration-[600ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-        {/* Front Side */}
-        <div className="absolute w-full h-full backface-hidden [backface-visibility:hidden]">
-          <img
-            src={countryImage}
-            alt="animated_card"
-            className="w-full h-full cursor-pointer object-cover rounded-lg shadow-lg"
-          />
-          <h2 className="text-[1.5rem] [text-shadow:2px_2px_4px_rgba(0,0,0,0.9)] font-bold text-white absolute bottom-5 left-5 font-montserrat">
-            {countryName}
-          </h2>
-        </div>
+    <div className="w-full h-[350px] relative overflow-hidden group cursor-pointer rounded-md font-montserrat">
+      {/*  image  */}
+      <img
+        src={countryImage}
+        alt="animated_card"
+        className="w-full h-full object-cover group-hover:scale-[1.1] transition-all duration-700"
+      />
 
-        {/* Back Side */}
-        <div className="absolute w-full h-full bg-white rounded-lg shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden] p-[25px]">
-          <h2 className="text-[1.2rem] font-semibold text-gray-800 mb-4 font-montserrat">
-            {countryName}
-          </h2>
-          <p className="text-gray-600 font-lato">
-            <span className="font-bold">Details:</span>{" "}
-            {description.slice(0, 150)}...
-            <Link
-              to="/visaDetails"
-              className="inline-block mt-4 text-blue-500 hover:underline font-lato"
-            >
-              Details
-            </Link>
-          </p>
-        </div>
+      {/*  text  */}
+      <div className="absolute top-[58%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex items-center justify-center flex-col">
+        <h1 className="text-[1.5rem] font-extrabold text-white text-center">
+          {countryName}
+        </h1>
+        <p className="text-gray-200">
+          <span className="font-semibold">Fee:</span> $ {fee}
+        </p>
+        <p className="text-gray-200">
+          <span className="font-semibold">Type:</span> {visaType}
+        </p>
+        <Link to="/visaDetails">
+          <button className="bg-cyan-400 z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-3 py-2 mt-3 hover:bg-cyan-500 transition-all duration-1000 text-white font-semibold rounded-md text-[0.9rem]">
+            View Details
+          </button>
+        </Link>
       </div>
+
+      {/*  bottom shadow  */}
+      <div className="w-full opacity-0 z-[-1] group-hover:opacity-100 group-hover:z-10 transition-all duration-500 bg-gradient-to-b from-[rgba(0,0,0,0.08)] to-[rgb(0,0,0)] h-[100%] absolute bottom-0 left-0 right-0"></div>
     </div>
   );
 };
