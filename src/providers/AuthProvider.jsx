@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
   // login with google
 
   const googleLogin = () => {
+    setLoader(true);
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -30,6 +31,7 @@ const AuthProvider = ({ children }) => {
 
   // sign in user/login
   const loginUser = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -49,7 +51,14 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, setUser, createUser, loginUser, googleLogin };
+  const authInfo = {
+    user,
+    setUser,
+    createUser,
+    loginUser,
+    googleLogin,
+    loader,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

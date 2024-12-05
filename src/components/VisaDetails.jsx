@@ -1,8 +1,16 @@
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { RxCross1 } from "react-icons/rx";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const VisaDetails = () => {
   const loadedDetails = useLoaderData();
-  console.log(loadedDetails);
+
+  const { user } = useContext(AuthContext);
+  // console.log(user?.email);
+  const [startDate, setStartDate] = useState(new Date());
   const {
     countryImage,
     countryName,
@@ -16,7 +24,7 @@ const VisaDetails = () => {
     applicationMethod,
   } = loadedDetails;
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto p-8 font-montserrat">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
         {/* Country Image */}
         <img
@@ -81,10 +89,100 @@ const VisaDetails = () => {
           </p>
 
           {/* Apply Button */}
-          <button className="btn rounded-full mt-6 bg-cyan-500 text-white px-6 py-3 hover:bg-cyan-600">
+          <button
+            onClick={() => document.getElementById("my_modal_5").showModal()}
+            className="btn rounded-full mt-6 bg-cyan-500 text-white px-6 py-3 hover:bg-cyan-600"
+          >
             Apply for Visa
           </button>
         </div>
+
+        {/* Modal */}
+        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box p-4">
+            <div className="modal-action flex-col space-y-4">
+              <form method="dialog">
+                <button className="btn float-end btn-circle">
+                  <RxCross1 size={24}></RxCross1>
+                </button>
+              </form>
+              <div className="space-y-2 text-center">
+                <h1 className="font-bold text-2xl">Visa Application Form</h1>
+                <p className="text-sm text-orange-400">
+                  Ensure all fields are filled before submitting your
+                  application.
+                </p>
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-gray-700 my-3">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  name="fName"
+                  className="mt-2 w-full border border-cyan-300 rounded-md shadow-sm p-4"
+                  placeholder="First Name"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700 my-3">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lName"
+                  className="mt-2 w-full border border-cyan-300 rounded-md shadow-sm p-4"
+                  placeholder="Last Name"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700 my-3">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="mt-2 w-full border border-cyan-300 rounded-md shadow-sm p-4"
+                  placeholder="Email"
+                />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-sm font-medium text-gray-700 my-3">
+                  Date
+                </label>
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  className="mt-2 w-full border border-cyan-300 rounded-md shadow-sm p-4"
+                />
+                {/* <input
+                  type="text"
+                  name="date"
+                  defaultValue={new Date().toISOString().split("T")[0]}
+                  className="mt-2 w-full border border-cyan-300 rounded-md shadow-sm p-4"
+                /> */}
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700 my-3">
+                  Fee
+                </label>
+                <input
+                  type="text"
+                  name="fee"
+                  defaultValue={`$${fee}`}
+                  className="mt-2 w-full border border-cyan-300 rounded-md shadow-sm p-4"
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn bg-cyan-500 hover:bg-cyan-700 text-white font-bold "
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </dialog>
       </div>
     </div>
   );

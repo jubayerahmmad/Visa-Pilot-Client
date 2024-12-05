@@ -39,7 +39,7 @@ const AddVisa = () => {
     e.preventDefault();
     // console.log(formData);
 
-    fetch("http://localhost:5000/allVisas", {
+    fetch("https://visa-pilot-server.vercel.app/allVisas", {
       method: "POST",
       headers: {
         "content-type": "application/json",
