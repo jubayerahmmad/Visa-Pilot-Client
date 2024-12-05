@@ -8,6 +8,7 @@ import MyVisaApplications from "../pages/MyVisaApplications";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../components/NotFound";
+import VisaDetails from "../components/VisaDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,12 @@ const router = createBrowserRouter([
         path: "/allVisas",
         element: <AllVisas></AllVisas>,
         loader: () => fetch("http://localhost:5000/allVisas"),
+      },
+      {
+        path: "/visaDetails/:id",
+        element: <VisaDetails></VisaDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allVisas/${params.id}`),
       },
       {
         path: "/myAddedVisas",

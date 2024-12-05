@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const VisaCards = ({ visa }) => {
-  const { countryName, countryImage, fee, visaType } = visa;
+  const { _id, countryName, countryImage, fee, visaType } = visa;
   return (
     <div className="w-full h-[350px] relative overflow-hidden group cursor-pointer rounded-md font-montserrat">
       {/*  image  */}
@@ -23,7 +23,7 @@ const VisaCards = ({ visa }) => {
         <p className="text-gray-200">
           <span className="font-semibold">Type:</span> {visaType}
         </p>
-        <Link to="/visaDetails">
+        <Link to={`/visaDetails/${_id}`}>
           <button className="bg-cyan-400 z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-3 py-2 mt-3 hover:bg-cyan-500 transition-all duration-1000 text-white font-semibold rounded-md text-[0.9rem]">
             View Details
           </button>
