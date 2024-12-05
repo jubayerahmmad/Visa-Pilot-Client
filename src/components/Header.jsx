@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] font-montserrat bg-gray-100">
       <Link to="/">
-        <img src={logo} alt="logo" className="w-32 object-cover" />
+        <img src={logo} alt="logo" className="w-20 lg:w-32 object-cover" />
       </Link>
       <ul className="items-center gap-12 text-2xl  lg:flex hidden font-semibold">
         <NavLink to="/">

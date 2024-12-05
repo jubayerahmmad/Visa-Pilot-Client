@@ -19,12 +19,7 @@ const AddVisa = () => {
   });
 
   const handleInputChange = (e) => {
-    // console.log(e.target);
     const { name, value, type, checked } = e.target;
-    // console.log(e.target.name);
-    // console.log(e.target.checked);
-    // console.log(e.target.type);
-    // console.log(e.target.value);
 
     if (type === "checkbox") {
       // const newDocuments = checked && [...formData.requiredDocuments, value]; // doesn't work ,throws error if unchecked
