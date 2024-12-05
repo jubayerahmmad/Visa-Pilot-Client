@@ -37,7 +37,7 @@ const AddVisa = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
 
     fetch("http://localhost:5000/allVisas", {
       method: "POST",
