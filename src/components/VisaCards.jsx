@@ -2,7 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const VisaCards = ({ visa }) => {
-  const { _id, countryName, countryImage, fee, visaType } = visa;
+  const {
+    _id,
+    countryName,
+    countryImage,
+    fee,
+    visaType,
+    processingTime,
+    applicationMethod,
+    validity,
+  } = visa;
   return (
     <div className="w-full h-[350px] relative overflow-hidden group cursor-pointer rounded-md font-montserrat">
       {/*  image  */}
@@ -13,8 +22,8 @@ const VisaCards = ({ visa }) => {
       />
 
       {/*  text  */}
-      <div className="absolute top-[58%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex items-center justify-center flex-col">
-        <h1 className="text-[1.5rem] font-extrabold text-white text-center">
+      <div className="absolute top-[68%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex justify-center items-center flex-col">
+        <h1 className="text-[1.5rem] font-extrabold text-white">
           {countryName}
         </h1>
         <p className="text-gray-200">
@@ -23,8 +32,18 @@ const VisaCards = ({ visa }) => {
         <p className="text-gray-200">
           <span className="font-semibold">Type:</span> {visaType}
         </p>
+        <p className="text-gray-200">
+          <span className="font-semibold">Processing Time:</span>{" "}
+          {processingTime}
+        </p>
+        <p className="text-gray-200">
+          <span className="font-semibold">Method:</span> {applicationMethod}
+        </p>
+        <p className="text-gray-200">
+          <span className="font-semibold">Validity:</span> {validity}
+        </p>
         <Link to={`/visaDetails/${_id}`}>
-          <button className="bg-cyan-400 z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-3 py-2 mt-3 hover:bg-cyan-500 transition-all duration-1000 text-white font-semibold rounded-md text-[0.9rem]">
+          <button className="bg-cyan-400 z-[1-] opacity-0 group-hover:z-20 group-hover:opacity-100 px-3 py-2 mt-3 hover:bg-cyan-500 transition-all duration-1000 text-white font-semibold rounded-full text-[0.9rem]">
             View Details
           </button>
         </Link>

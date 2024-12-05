@@ -3,12 +3,12 @@ import VisaCards from "../components/VisaCards";
 
 const AllVisas = () => {
   const loadedVisas = useLoaderData();
-  console.log(loadedVisas);
+  // console.log(loadedVisas);
 
   return (
     <div>
       <h1 className="text-4xl font-semibold text-center my-6 font-montserrat">
-        See All Visa
+        Check All Visa
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-11/12 mx-auto mb-6">
