@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NotFound from "../components/NotFound";
 import VisaDetails from "../components/VisaDetails";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,26 +23,48 @@ const router = createBrowserRouter([
       },
       {
         path: "/allVisas",
-        element: <AllVisas></AllVisas>,
+        element: (
+          <PrivateRoute>
+            <AllVisas></AllVisas>
+          </PrivateRoute>
+        ),
         loader: () => fetch("https://visa-pilot-server.vercel.app/allVisas"),
       },
       {
         path: "/visaDetails/:id",
-        element: <VisaDetails></VisaDetails>,
+        element: (
+          <PrivateRoute>
+            <VisaDetails></VisaDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://visa-pilot-server.vercel.app/allVisas/${params.id}`),
       },
       {
         path: "/myAddedVisas",
-        element: <MyAddedVisa></MyAddedVisa>,
+        element: (
+          <PrivateRoute>
+            <MyAddedVisa></MyAddedVisa>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/allVisas"),
       },
       {
         path: "/addVisa",
-        element: <AddVisa></AddVisa>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddVisa></AddVisa>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myVisaApplicaton",
-        element: <MyVisaApplications></MyVisaApplications>,
+        element: (
+          <PrivateRoute>
+            <MyVisaApplications></MyVisaApplications>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
