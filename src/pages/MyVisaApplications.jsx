@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import MyAppliedVisa from "../components/MyAppliedVisa";
-import Lottie from "lottie-react";
-import noDataAnimation from "../assets/noData.json";
+
 const MyVisaApplications = () => {
   const loadedUsers = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -14,7 +13,7 @@ const MyVisaApplications = () => {
   const [myAppliedVisa, setMyAppliedVisa] = useState(loggedUserAppliedVisa);
   const [search, setSearch] = useState("");
 
-  console.log(search);
+  // console.log(search);
   // console.log(loggedUserAppliedVisa);
 
   useEffect(() => {
