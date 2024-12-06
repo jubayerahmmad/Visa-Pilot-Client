@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProvider";
 
 const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
+  const { setLoader } = useContext(AuthContext);
   const {
     _id,
     countryImage,
@@ -75,8 +77,9 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
           showConfirmButton: false,
           timer: 1500,
         });
-
+        setLoader(true);
         setMyVisa(formData && formData);
+        setLoader(false);
       });
   };
 

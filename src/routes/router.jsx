@@ -61,6 +61,8 @@ const router = createBrowserRouter([
             <MyVisaApplications></MyVisaApplications>
           </PrivateRoute>
         ),
+        loader: () =>
+          fetch("https://visa-pilot-server.vercel.app/appliedUsers"),
       },
       {
         path: "/login",

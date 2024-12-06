@@ -32,7 +32,19 @@ const VisaDetails = () => {
     const lName = form.lName.value;
     const email = form.email.value;
     const fee = form.fee.value;
-    const appliedUser = { fName, lName, email, fee, startDate };
+    const appliedUser = {
+      fName,
+      lName,
+      email,
+      fee,
+      startDate,
+      countryImage,
+      countryName,
+      visaType,
+      processingTime,
+      validity,
+      applicationMethod,
+    };
     // console.log(appliedUser);
 
     // console.log(closeModal);
