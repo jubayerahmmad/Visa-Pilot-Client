@@ -35,7 +35,7 @@ const Header = () => {
       <Link to="/">
         <img src={logo} alt="logo" className="w-20 lg:w-32 object-cover" />
       </Link>
-      <ul className="items-center gap-12 text-2xl  lg:flex hidden font-semibold">
+      <ul className="items-center gap-12 text-2xl  xl:flex hidden font-semibold">
         <NavLink to="/">
           <li className="hover:text-[#3B9DF8]">Home</li>
         </NavLink>
@@ -122,12 +122,12 @@ const Header = () => {
 
         {mobileSidebarOpen ? (
           <CgClose
-            className="text-3xl mr-1 cursor-pointer lg:hidden flex"
+            className="text-3xl mr-1 cursor-pointer xl:hidden flex"
             onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
           />
         ) : (
           <CiMenuFries
-            className="text-3xl mr-1 cursor-pointer lg:hidden flex"
+            className="text-3xl mr-1 cursor-pointer xl:hidden flex"
             onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
           />
         )}
@@ -138,7 +138,7 @@ const Header = () => {
           mobileSidebarOpen
             ? "translate-x-0 opacity-100 z-20"
             : "translate-x-[200px] opacity-0 z-[-1]"
-        } lg:hidden bg-white boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-300`}
+        } xl:hidden bg-white boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-300`}
       >
         <ul className="items-center gap-12 text-[1rem] text-gray-600 flex flex-col text-xl">
           <NavLink to="/">

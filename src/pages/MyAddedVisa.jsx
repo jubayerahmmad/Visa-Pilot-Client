@@ -20,7 +20,7 @@ const MyAddedVisa = () => {
       </h1>
       <div>
         {myVisa.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-11/12 mx-auto mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-11/12 mx-auto mb-6">
             {myVisa?.map((visa) => (
               <MyAddedVisaCards
                 key={visa._id}

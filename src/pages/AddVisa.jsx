@@ -22,7 +22,6 @@ const AddVisa = () => {
     const { name, value, type, checked } = e.target;
 
     if (type === "checkbox") {
-      // const newDocuments = checked && [...formData.requiredDocuments, value]; // doesn't work ,throws error if unchecked
       const newDocuments = checked
         ? [...formData.requiredDocuments, value]
         : formData.requiredDocuments.filter((doc) => doc !== value); // removes from aerray if unchecked
