@@ -23,11 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allVisas",
-        element: (
-          <PrivateRoute>
-            <AllVisas></AllVisas>
-          </PrivateRoute>
-        ),
+        element: <AllVisas></AllVisas>,
         loader: () => fetch("https://visa-pilot-server.vercel.app/allVisas"),
       },
       {
@@ -47,7 +43,7 @@ const router = createBrowserRouter([
             <MyAddedVisa></MyAddedVisa>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allVisas"),
+        loader: () => fetch("https://visa-pilot-server.vercel.app/allVisas"),
       },
       {
         path: "/addVisa",
