@@ -27,6 +27,7 @@ const MyAddedVisa = () => {
                 visa={visa}
                 myVisa={myVisa}
                 setMyVisa={setMyVisa}
+                userAddedVisas={userAddedVisas}
               ></MyAddedVisaCards>
             ))}
           </div>
