@@ -29,12 +29,11 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/appliedUsers/${id}`, {
+        fetch(`https://visa-pilot-server.vercel.app/appliedUsers/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
