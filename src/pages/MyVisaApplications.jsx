@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import MyAppliedVisa from "../components/MyAppliedVisa";
-
+import Lottie from "lottie-react";
+import noDataAnimation from "../assets/noData.json";
 const MyVisaApplications = () => {
   const loadedUsers = useLoaderData();
   const { user } = useContext(AuthContext);
@@ -11,8 +12,20 @@ const MyVisaApplications = () => {
   );
 
   const [myAppliedVisa, setMyAppliedVisa] = useState(loggedUserAppliedVisa);
+  const [search, setSearch] = useState("");
 
-  console.log(loggedUserAppliedVisa);
+  console.log(search);
+  // console.log(loggedUserAppliedVisa);
+
+  useEffect(() => {
+    fetch(`https://visa-pilot-server.vercel.app/appliedUsers?search=${search}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyAppliedVisa(
+          data.filter((loggedUser) => loggedUser?.email === user?.email)
+        );
+      });
+  }, [search]);
 
   return (
     <div>
@@ -23,11 +36,11 @@ const MyVisaApplications = () => {
       {/* Search Bar */}
       <div className="w-9/12 mx-auto relative my-6">
         <input
-          type="search"
+          type="text"
           placeholder="Search..."
+          onChange={(e) => setSearch(e.target.value)}
           className="border border-[#e5eaf2] py-3 pl-4 pr-[65px] outline-none w-full rounded-md"
         />
-
         <span className="btn rounded-none bg-cyan-500 text-white absolute top-0 right-0 h-full px-5 flex items-center justify-center rounded-r-md cursor-pointer hover:bg-cyan-400">
           Search
         </span>

@@ -22,15 +22,15 @@ const VisaCards = ({ visa }) => {
       />
 
       {/*  text  */}
-      <div className="absolute top-[68%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex justify-center items-center flex-col">
+      <div className="absolute top-[62%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex justify-center items-center flex-col">
         <h1 className="text-[1.5rem] font-extrabold text-white">
           {countryName}
         </h1>
-        <p className="text-gray-200">
-          <span className="font-semibold">Fee:</span> $ {fee}
+        <p className="text-[#FFEB3B]">
+          <span className="font-semibold">Type:</span> {visaType}
         </p>
         <p className="text-gray-200">
-          <span className="font-semibold">Type:</span> {visaType}
+          <span className="font-semibold">Fee:</span> $ {fee}
         </p>
         <p className="text-gray-200">
           <span className="font-semibold">Processing Time:</span>{" "}
