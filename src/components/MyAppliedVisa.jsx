@@ -51,7 +51,7 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
 
   return (
     <div className="font-montserrat">
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 dark:bg-slate-800 shadow-xl">
         <figure>
           <img
             className="h-64 w-full object-cover"
@@ -59,7 +59,7 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
             alt="name"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body dark:text-gray-300">
           {/* Country Name */}
           <h2 className="text-3xl font-bold mb-4">{countryName}</h2>
 
@@ -102,7 +102,7 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
           <div className="card-actions">
             <button
               onClick={() => handleCancel(_id)}
-              className="btn bg-cyan-500 hover:bg-cyan-700 text-white text-xl"
+              className="btn border-none bg-cyan-500 hover:bg-cyan-700 text-white text-xl"
             >
               <MdCancel size={28}></MdCancel> Cancel
             </button>

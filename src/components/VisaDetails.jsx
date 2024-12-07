@@ -72,7 +72,7 @@ const VisaDetails = () => {
 
   return (
     <div className="container mx-auto p-8 font-montserrat">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+      <div className="bg-white dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden">
         {/* Country Image */}
         <img
           src={countryImage}
@@ -80,7 +80,7 @@ const VisaDetails = () => {
           className="w-full h-96 lg:h-[600px] object-cover"
         />
 
-        <div className="p-6">
+        <div className="p-6 dark:text-gray-300">
           {/* Country Name */}
           <h2 className="text-3xl font-bold mb-4">{countryName}</h2>
 
@@ -101,7 +101,7 @@ const VisaDetails = () => {
           </p>
           <ul className="list-disc list-inside mb-4">
             {requiredDocuments.map((doc, index) => (
-              <li key={index} className="text-gray-700">
+              <li key={index} className="text-gray-700 dark:text-gray-400">
                 {doc}
               </li>
             ))}
@@ -111,7 +111,7 @@ const VisaDetails = () => {
           <p className="text-lg font-medium mb-2">
             <span className="font-semibold">Description:</span>
           </p>
-          <p className="text-gray-700 mb-4">{description}</p>
+          <p className="text-gray-700 dark:text-gray-400 mb-4">{description}</p>
 
           {/* Age Restriction */}
           <p className="text-lg font-medium mb-2">
@@ -138,7 +138,7 @@ const VisaDetails = () => {
           {/* Apply Button */}
           <button
             onClick={() => document.getElementById("my_modal_5").showModal()}
-            className="btn rounded-full mt-6 bg-cyan-500 text-white px-6 py-3 hover:bg-cyan-600"
+            className="btn border-none rounded-full mt-6 bg-cyan-500 text-white px-6 py-3 hover:bg-cyan-600"
           >
             Apply for Visa
           </button>

@@ -7,11 +7,6 @@ import {
   Autoplay,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// https://i.ibb.co.com/q9KJrTt/srikant-sahoo-r2-L6v-CKa-VRk-unsplash.jpg
-// https://i.ibb.co.com/B4Cr3fY/ferdinand-stohr-Pe-Fk7fzx-Tdk-unsplash.jpg
-// https://i.ibb.co.com/7zkq8Kc/sebastian-enrique-Tlqm4w9-LO3k-unsplash.jpg
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";

@@ -49,10 +49,10 @@ const Login = () => {
 
   return (
     <div className="p-6 font-montserrat w-10/12 mx-auto rounded-2xl my-8  border border-cyan-500 shadow-md">
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+      <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-300 mb-4">
         Login Here
       </h2>
-      <p className="font-semibold text-center mb-4">
+      <p className="font-semibold text-center mb-4 dark:text-gray-400">
         Don't Have an Account?{" "}
         <Link to="/register">
           <span className="font-bold text-cyan-500">Register</span>
@@ -66,7 +66,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="email"
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-gray-600 dark:text-gray-200"
               >
                 Email
               </label>
@@ -74,7 +74,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 required
-                className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
+                className="w-full px-5 py-3 mt-2 border border-gray-300 dark:bg-slate-600 dark:border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
             </div>
 
@@ -82,7 +82,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-gray-600 dark:text-gray-200"
               >
                 Password
               </label>
@@ -90,10 +90,13 @@ const Login = () => {
                 type="password"
                 name="password"
                 required
-                className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
+                className="w-full px-5 py-3 mt-2 border border-gray-300 dark:bg-slate-600 dark:border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+              <label className="label ">
+                <a
+                  href="#"
+                  className="label-text-alt link link-hover dark:text-gray-50"
+                >
                   Forgot password?
                 </a>
               </label>
@@ -106,20 +109,20 @@ const Login = () => {
             <div>
               <button
                 type="submit"
-                className="w-full btn bg-cyan-400 text-white py-3 rounded-full hover:bg-cyan-500"
+                className="w-full btn border-none bg-cyan-400 text-white py-3 rounded-full hover:bg-cyan-500"
               >
                 Login
               </button>
             </div>
           </form>
 
-          <div className="divider">OR</div>
+          <div className="divider dark:divider-info dark:text-gray-50">OR</div>
           {/* Login with Google Button */}
           <div className="mt-6 text-center">
             <button
               type="submit"
               onClick={handleGoogleLogin}
-              className="w-full btn btn-outline py-3 rounded-full"
+              className="w-full btn btn-outline dark:text-gray-200 py-3 rounded-full"
             >
               <FaGoogle></FaGoogle> Login with Google
             </button>

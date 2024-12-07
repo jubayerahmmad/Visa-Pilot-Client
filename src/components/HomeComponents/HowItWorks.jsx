@@ -15,7 +15,7 @@ const HowItWorks = () => {
       title: "Document Verification",
       description:
         "Our team will review your documents for accuracy and compliance.",
-      icon: <CgFileDocument></CgFileDocument>,
+      icon: <CgFileDocument className="dark:text-white"></CgFileDocument>,
     },
     {
       title: "Approval Process",
@@ -26,21 +26,21 @@ const HowItWorks = () => {
     {
       title: "Receive Visa",
       description: "Get your visa and start planning your journey!",
-      icon: <FaPlaneDeparture></FaPlaneDeparture>,
+      icon: <FaPlaneDeparture className="dark:text-white"></FaPlaneDeparture>,
     },
   ];
 
   return (
-    <section className="bg-white py-16 px-8 md:px-20">
+    <section className="bg-white dark:bg-slate-950 py-16 px-8 md:px-20">
       <div className="w-11/12 mx-auto text-center">
         <h2
-          className="text-4xl font-bold text-gray-800 mb-8 font-montserrat"
+          className="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-8 font-montserrat"
           data-aos="fade-right"
         >
           How It Works
         </h2>
         <p
-          className="text-lg text-gray-600 mb-12 font-lato"
+          className="text-lg text-gray-600 dark:text-gray-300 mb-12 font-lato"
           data-aos="fade-right"
         >
           Follow these simple steps to apply for the Visa Pilot Program and
@@ -50,14 +50,14 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-gray-100 p-8 rounded-lg shadow-md"
+              className="flex flex-col items-center bg-gray-100 dark:bg-slate-800 p-8 rounded-lg shadow-md"
               data-aos="flip-left"
             >
               <div className="text-5xl mb-4">{step.icon}</div>
-              <h3 className="text-2xl font-semibold text-gray-700 mb-4 font-montserrat">
+              <h3 className="text-2xl font-semibold text-gray-700 dark:text-gray-50 mb-4 font-montserrat">
                 {step.title}
               </h3>
-              <p className="text-gray-600 text-center font-lato">
+              <p className="text-gray-600 dark:text-gray-400 text-center font-lato">
                 {step.description}
               </p>
             </div>

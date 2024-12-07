@@ -39,7 +39,7 @@ const Register = () => {
       return;
     }
 
-    const newUser = { name, email, password, photo };
+    // const newUser = { name, email, password, photo };
 
     createUser(email, password)
       .then(() => {
@@ -66,7 +66,6 @@ const Register = () => {
 
   const handleGoogleLogin = () => {
     googleLogin().then((result) => {
-      console.log(result);
       Swal.fire({
         icon: "success",
         title: "Logged in Successfully",
@@ -79,10 +78,10 @@ const Register = () => {
 
   return (
     <div className="p-6 font-montserrat w-10/12 mx-auto rounded-2xl my-8  border border-cyan-500 shadow-md">
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+      <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-200 mb-4">
         Register Now
       </h2>
-      <p className="font-semibold text-center mb-4">
+      <p className="font-semibold text-center dark:text-gray-400 mb-4">
         Already Have an Account?{" "}
         <Link to="/login">
           <span className="font-bold text-cyan-500">Login</span>
@@ -96,14 +95,14 @@ const Register = () => {
             <div>
               <label
                 htmlFor="name"
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-gray-600 dark:text-gray-200"
               >
                 Full Name
               </label>
               <input
                 type="text"
                 name="name"
-                className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
+                className="w-full px-5 py-3 mt-2 border border-gray-300 dark:bg-slate-600 dark:border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
             </div>
 
@@ -111,7 +110,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="photoUrl"
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-gray-600 dark:text-gray-200"
               >
                 Photo URL
               </label>
@@ -119,7 +118,7 @@ const Register = () => {
                 type="text"
                 name="photo"
                 required
-                className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
+                className="w-full px-5 py-3 mt-2 border border-gray-300 dark:bg-slate-600 dark:border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
             </div>
 
@@ -127,7 +126,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="email"
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-gray-600 dark:text-gray-200"
               >
                 Email
               </label>
@@ -135,7 +134,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 required
-                className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
+                className="w-full px-5 py-3 mt-2 border border-gray-300 dark:bg-slate-600 dark:border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
             </div>
 
@@ -143,7 +142,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="password"
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-gray-600 dark:text-gray-200"
               >
                 Password
               </label>
@@ -151,7 +150,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 required
-                className="w-full px-5 py-3 mt-2 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
+                className="w-full px-5 py-3 mt-2 border border-gray-300 dark:bg-slate-600 dark:border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400 transition duration-200"
               />
             </div>
             {error && (
@@ -162,20 +161,20 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="w-full btn bg-cyan-400 text-white py-3 rounded-full hover:bg-cyan-500"
+                className="w-full btn border-none bg-cyan-400 text-white py-3 rounded-full hover:bg-cyan-500"
               >
                 Register
               </button>
             </div>
           </form>
 
-          <div className="divider">OR</div>
+          <div className="divider dark:divider-info dark:text-gray-300">OR</div>
           {/* Login with Google Button */}
           <div className="mt-6 text-center">
             <button
               type="submit"
               onClick={handleGoogleLogin}
-              className="w-full btn btn-outline py-3 rounded-full"
+              className="w-full btn btn-outline dark:text-gray-300 py-3 rounded-full"
             >
               <FaGoogle></FaGoogle>Register with Google
             </button>

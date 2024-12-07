@@ -5,10 +5,10 @@ import { Link, useLoaderData } from "react-router-dom";
 const LatestVisas = () => {
   const loadedVisas = useLoaderData();
   return (
-    <section className="bg-gray-50 py-16 px-8 md:px-20">
+    <section className="bg-gray-50 dark:bg-slate-900 py-16 px-8 md:px-20">
       <div className="max-w-7xl mx-auto">
         <h2
-          className="text-4xl font-bold text-gray-800 text-center mb-8 font-montserrat"
+          className="text-4xl font-bold text-gray-800 dark:text-white text-center mb-8 font-montserrat"
           data-aos="fade-down"
         >
           Latest Visas

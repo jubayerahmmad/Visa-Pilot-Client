@@ -69,17 +69,18 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
         modal.close();
-        Swal.fire({
-          icon: "success",
-          title: "Visa Updated Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setLoader(true);
-        setMyVisa(formData && formData);
-        setLoader(false);
+        if (data.modifiedCount) {
+          setLoader(true);
+          Swal.fire({
+            icon: "success",
+            title: "Visa Updated Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setMyVisa(formData && formData);
+        }
       });
   };
 
@@ -118,7 +119,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
 
   return (
     <div className="font-montserrat">
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 dark:bg-slate-800 shadow-xl">
         <figure>
           <img
             className="h-64 w-full object-cover"
@@ -126,7 +127,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
             alt="name"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body dark:text-gray-300">
           {/* Country Name */}
           <h2 className="text-3xl font-bold mb-4">{countryName}</h2>
 
@@ -158,13 +159,13 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
           <div className="card-actions">
             <button
               onClick={() => handleShowModal(visa)}
-              className="btn bg-cyan-500 hover:bg-cyan-700 text-white"
+              className="btn border-none bg-cyan-500 hover:bg-cyan-700 text-white"
             >
               <BiEditAlt size={28}></BiEditAlt> Edit
             </button>
             <button
               onClick={() => handleDelete(_id)}
-              className="btn bg-red-500 hover:bg-red-700 text-white"
+              className="btn border-none bg-red-500 hover:bg-red-700 text-white"
             >
               <RiDeleteBin7Fill size={28}></RiDeleteBin7Fill> Delete
             </button>

@@ -13,7 +13,10 @@ const VisaCards = ({ visa }) => {
     validity,
   } = visa;
   return (
-    <div className="w-full h-[350px] relative overflow-hidden group cursor-pointer rounded-md font-montserrat">
+    <div
+      className="w-full h-[350px] relative overflow-hidden group cursor-pointer rounded-md font-montserrat"
+      data-aos="fade-right"
+    >
       {/*  image  */}
       <img
         src={countryImage}

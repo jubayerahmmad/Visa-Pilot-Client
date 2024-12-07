@@ -15,7 +15,7 @@ const MyAddedVisa = () => {
 
   return (
     <div>
-      <h1 className="text-4xl font-semibold text-center my-6 font-montserrat">
+      <h1 className="text-4xl dark:text-gray-200 font-semibold text-center my-6 font-montserrat">
         My Added Visas
       </h1>
       <div>
@@ -34,12 +34,13 @@ const MyAddedVisa = () => {
         ) : (
           <div className="flex flex-col items-center justify-center my-6 space-y-6">
             <Lottie
-              animationData={noDataAnimation} // Path to your animation JSON
-              loop={true} // Loop the animation
-              autoplay={true} // Autoplay the animation
-              className="h-96" // Set the size of the animation
+              animationData={noDataAnimation}
+              autoplay={true}
+              className="h-96"
             />
-            <h2 className="text-4xl font-bold">You did't Add any Visa Yet!</h2>
+            <h2 className="text-4xl text-center p-2 font-bold">
+              You didn't Add any Visa Yet!
+            </h2>
             <Link to="/addVisa">
               <button className="btn bg-cyan-500 text-white font-bold rounded-full hover:bg-cyan-600">
                 Go Add Visa

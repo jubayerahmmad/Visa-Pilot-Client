@@ -28,7 +28,7 @@ const MyVisaApplications = () => {
 
   return (
     <div>
-      <h1 className="text-4xl font-semibold text-center my-6 font-montserrat">
+      <h1 className="text-4xl font-semibold dark:text-gray-200 text-center my-6 font-montserrat">
         My Visa Applications
       </h1>
 
@@ -38,9 +38,9 @@ const MyVisaApplications = () => {
           type="text"
           placeholder="Search..."
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-[#e5eaf2] py-3 pl-4 pr-[65px] outline-none w-full rounded-md"
+          className="border border-[#e5eaf2] dark:border-slate-700 py-3 pl-4 pr-[65px] dark:bg-slate-600 outline-none w-full rounded-md"
         />
-        <span className="btn rounded-none bg-cyan-500 text-white absolute top-0 right-0 h-full px-5 flex items-center justify-center rounded-r-md cursor-pointer hover:bg-cyan-400">
+        <span className="btn border-none rounded-none bg-cyan-500 text-white absolute top-0 right-0 h-full px-5 flex items-center justify-center rounded-r-md cursor-pointer hover:bg-cyan-400">
           Search
         </span>
       </div>

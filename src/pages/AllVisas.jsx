@@ -11,15 +11,15 @@ const AllVisas = () => {
     filter === "Filter"
       ? loadedVisas
       : loadedVisas.filter((visa) => visa.visaType === filter);
-  console.log(filteredVisas);
+  // console.log(filteredVisas);
 
   return (
     <div>
-      <h1 className="text-4xl font-semibold text-center my-6 font-montserrat">
+      <h1 className="text-4xl dark:text-gray-200 font-semibold animate__animated animate__fadeInDown text-center my-6 font-montserrat">
         Check All Visa
       </h1>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center animate__animated animate__fadeInUp">
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
