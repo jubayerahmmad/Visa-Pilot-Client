@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import MyAppliedVisa from "../components/MyAppliedVisa";
+import Lottie from "lottie-react";
+import noDataAnimation from "../assets/noData.json";
 
 const MyVisaApplications = () => {
   const loadedUsers = useLoaderData();
@@ -45,16 +47,34 @@ const MyVisaApplications = () => {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto mb-6">
-        {myAppliedVisa?.map((visa) => (
-          <MyAppliedVisa
-            key={visa._id}
-            visa={visa}
-            myAppliedVisa={myAppliedVisa}
-            setMyAppliedVisa={setMyAppliedVisa}
-          ></MyAppliedVisa>
-        ))}
-      </div>
+      {myAppliedVisa?.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto mb-6">
+          {myAppliedVisa?.map((visa) => (
+            <MyAppliedVisa
+              key={visa._id}
+              visa={visa}
+              myAppliedVisa={myAppliedVisa}
+              setMyAppliedVisa={setMyAppliedVisa}
+            ></MyAppliedVisa>
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center my-6 space-y-6">
+          <Lottie
+            animationData={noDataAnimation}
+            autoplay={true}
+            className="h-96"
+          />
+          <h2 className="text-4xl text-center dark:text-gray-200 p-2 font-bold">
+            You didn't Add any Visa Yet!
+          </h2>
+          <Link to="/allVisas">
+            <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">
+              Go to All Visas
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

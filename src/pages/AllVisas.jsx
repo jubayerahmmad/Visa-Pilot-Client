@@ -5,10 +5,10 @@ import { useState } from "react";
 const AllVisas = () => {
   const loadedVisas = useLoaderData();
   // console.log(loadedVisas);
-  const [filter, setFilter] = useState("Filter");
+  const [filter, setFilter] = useState("All");
 
   const filteredVisas =
-    filter === "Filter"
+    filter === "All"
       ? loadedVisas
       : loadedVisas.filter((visa) => visa.visaType === filter);
   // console.log(filteredVisas);
@@ -25,8 +25,8 @@ const AllVisas = () => {
           onChange={(e) => setFilter(e.target.value)}
           className="p-4 mb-6 bg-cyan-500 text-white rounded-xl font-bold cursor-pointer"
         >
-          <option className="text-xl" value="Filter">
-            Filter
+          <option className="text-xl" value="All">
+            All
           </option>
           <option className="text-xl" value="Tourist visa">
             Tourist visa

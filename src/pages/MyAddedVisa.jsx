@@ -42,7 +42,7 @@ const MyAddedVisa = () => {
               You didn't Add any Visa Yet!
             </h2>
             <Link to="/addVisa">
-              <button className="btn border-none bg-cyan-500 text-white font-bold rounded-full hover:bg-cyan-600">
+              <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">
                 Go Add Visa
               </button>
             </Link>
