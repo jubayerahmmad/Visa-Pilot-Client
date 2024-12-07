@@ -18,12 +18,10 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
     applicationMethod,
   } = visa;
 
-  // console.log(_id);
-
   const [formData, setFormData] = useState({
     countryImage: "",
     countryName: "",
-    visaType: "",
+    visaType: "Tourist visa",
     processingTime: "",
     requiredDocuments: [],
     description: "",
@@ -33,7 +31,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
     applicationMethod: "",
   });
 
-  const [selectedVisa, setSelectedVisa] = useState(null);
+  const [selectedVisa, setSelectedVisa] = useState(formData);
 
   const handleShowModal = (visa) => {
     document.getElementById(`${_id}`).showModal();
@@ -43,7 +41,6 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
   // update
 
   const handleInputChange = (e) => {
-    e.preventDefault();
     const { name, value, type, checked } = e.target;
 
     if (type === "checkbox") {
@@ -71,14 +68,14 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
       .then((res) => res.json())
       .then((data) => {
         modal.close();
-        if (data.modifiedCount) {
-          setLoader(true);
+        if (data?.modifiedCount) {
           Swal.fire({
             icon: "success",
             title: "Visa Updated Successfully",
             showConfirmButton: false,
             timer: 1500,
           });
+          setLoader(true);
           setMyVisa(formData && formData);
         }
       });
@@ -186,7 +183,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                 </form>
                 <div className="space-y-2 text-center">
                   <h1 className="font-bold text-2xl">Visa Updating Form</h1>
-                  <h1 className="font-bold text-2xl">{selectedVisa._id}</h1>
+                  {/* <h1 className="font-bold text-2xl">{selectedVisa._id}</h1> */}
                   <p className="text-sm text-orange-400">
                     Ensure all fields are checked before submitting your
                     application.
@@ -234,6 +231,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <select
                       name="visaType"
                       onChange={handleInputChange}
+                      value={formData.visaType}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                     >
                       <option value="Tourist Visa">Tourist Visa</option>

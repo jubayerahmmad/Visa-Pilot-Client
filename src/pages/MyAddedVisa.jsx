@@ -19,7 +19,7 @@ const MyAddedVisa = () => {
         My Added Visas
       </h1>
       <div>
-        {myVisa.length > 0 ? (
+        {myVisa?.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-11/12 mx-auto mb-6">
             {myVisa?.map((visa) => (
               <MyAddedVisaCards
@@ -38,11 +38,11 @@ const MyAddedVisa = () => {
               autoplay={true}
               className="h-96"
             />
-            <h2 className="text-4xl text-center p-2 font-bold">
+            <h2 className="text-4xl text-center dark:text-gray-200 p-2 font-bold">
               You didn't Add any Visa Yet!
             </h2>
             <Link to="/addVisa">
-              <button className="btn bg-cyan-500 text-white font-bold rounded-full hover:bg-cyan-600">
+              <button className="btn border-none bg-cyan-500 text-white font-bold rounded-full hover:bg-cyan-600">
                 Go Add Visa
               </button>
             </Link>

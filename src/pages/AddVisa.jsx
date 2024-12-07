@@ -76,6 +76,9 @@ const AddVisa = () => {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-center">
         Fill out the form to add a new visa requirement.
       </p>
+
+      {/* Form */}
+
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Country Image */}
         <div>
