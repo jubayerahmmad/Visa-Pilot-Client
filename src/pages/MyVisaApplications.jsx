@@ -48,7 +48,7 @@ const MyVisaApplications = () => {
       </div>
 
       {myAppliedVisa?.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-10/12 mx-auto mb-6">
           {myAppliedVisa?.map((visa) => (
             <MyAppliedVisa
               key={visa._id}

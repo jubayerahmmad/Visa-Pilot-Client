@@ -61,7 +61,9 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
         </figure>
         <div className="card-body dark:text-gray-300">
           {/* Country Name */}
-          <h2 className="text-3xl font-bold mb-4">{countryName}</h2>
+          <h2 className="text-3xl text-white font-bold mb-4 p-4 rounded-sm bg-cyan-500 text-center">
+            {countryName}
+          </h2>
 
           {/* Applicants name */}
           <p className="text-lg font-medium mb-1">
@@ -102,7 +104,7 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
           <div className="card-actions">
             <button
               onClick={() => handleCancel(_id)}
-              className="btn border-none bg-cyan-500 hover:bg-cyan-700 text-white text-xl"
+              className="btn border-none bg-red-500 hover:bg-red-700 text-white text-xl"
             >
               <MdCancel size={28}></MdCancel> Cancel
             </button>

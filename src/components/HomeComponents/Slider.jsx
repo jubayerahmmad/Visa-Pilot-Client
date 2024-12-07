@@ -20,7 +20,7 @@ const Slider = () => {
         spaceBetween={30}
         slidesPerView={1}
         autoplay={{
-          delay: 2000, // Time between slides (in milliseconds)
+          delay: 3000, // Time between slides (in milliseconds)
           disableOnInteraction: false, // Keeps autoplay running even after interaction
         }}
         navigation
@@ -55,7 +55,7 @@ const Slider = () => {
                 Your journey starts here!
               </p>{" "}
               <Link to="/allVisas">
-                <button className="btn bg-cyan-400 text-white border-none shadow-none">
+                <button className="btn bg-cyan-500 hover:bg-cyan-700 text-white border-none shadow-none">
                   Apply Visa
                 </button>
               </Link>
@@ -84,7 +84,7 @@ const Slider = () => {
                 visa solutions.
               </p>{" "}
               <Link to="/allVisas">
-                <button className="btn bg-cyan-400 text-white border-none shadow-none">
+                <button className="btn bg-cyan-500 hover:bg-cyan-700 text-white border-none shadow-none">
                   Apply Visa
                 </button>
               </Link>
@@ -113,7 +113,7 @@ const Slider = () => {
                 next adventure.
               </p>{" "}
               <Link to="/allVisas">
-                <button className="btn bg-cyan-400 text-white border-none shadow-none">
+                <button className="btn bg-cyan-500 hover:bg-cyan-700 text-white border-none shadow-none">
                   Apply Visa
                 </button>
               </Link>
@@ -142,7 +142,7 @@ const Slider = () => {
                 breathtaking landscapes.
               </p>{" "}
               <Link to="/allVisas">
-                <button className="btn bg-cyan-400 text-white border-none shadow-none">
+                <button className="btn bg-cyan-500 hover:bg-cyan-700 text-white border-none shadow-none">
                   Apply Visa
                 </button>
               </Link>
