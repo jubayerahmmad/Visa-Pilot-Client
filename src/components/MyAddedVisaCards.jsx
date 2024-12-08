@@ -23,6 +23,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
   // console.log("Visa", visa);
 
   const [formData, setFormData] = useState({
+    _id: _id,
     countryImage: countryImage,
     countryName: countryName,
     visaType: visaType,
@@ -69,7 +70,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
       .then((res) => res.json())
       .then((data) => {
         modal.close();
-        // console.log(data);
+        console.log(data);
         if (data?.modifiedCount) {
           Swal.fire({
             icon: "success",
@@ -77,11 +78,10 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          setLoader(true);
-          setMyVisa(formData);
+          setLoader(false);
         }
       });
-    setLoader(false);
+    setLoader(true);
   };
 
   // delete

@@ -1,17 +1,30 @@
-import { useContext, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import MyAddedVisaCards from "../components/MyAddedVisaCards";
 import noDataAnimation from "../assets/noData.json";
 import Lottie from "lottie-react";
 
 const MyAddedVisa = () => {
-  const loadedVisas = useLoaderData();
+  // const loadedVisas = useLoaderData();
   const { user } = useContext(AuthContext);
-  const userAddedVisas = loadedVisas.filter(
-    (visas) => visas.userEmail === user?.email
-  );
-  const [myVisa, setMyVisa] = useState(userAddedVisas);
+  // const userAddedVisas = loadedVisas.filter(
+  //   (visas) => visas.userEmail === user?.email
+  // );
+  const [myVisa, setMyVisa] = useState([]);
+
+  useEffect(() => {
+    fetch("https://visa-pilot-server.vercel.app/allVisas")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        const userAddedVisas = data.filter(
+          (visas) => visas.userEmail === user?.email
+        );
+        // console.log(userAddedVisas);
+        setMyVisa(userAddedVisas);
+      });
+  }, [user, setMyVisa]);
 
   return (
     <div>
@@ -27,7 +40,6 @@ const MyAddedVisa = () => {
                 visa={visa}
                 myVisa={myVisa}
                 setMyVisa={setMyVisa}
-                userAddedVisas={userAddedVisas}
               ></MyAddedVisaCards>
             ))}
           </div>
