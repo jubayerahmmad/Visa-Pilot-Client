@@ -66,7 +66,7 @@ const MyVisaApplications = () => {
             className="h-96"
           />
           <h2 className="text-4xl text-center dark:text-gray-200 p-2 font-bold">
-            You didn't Add any Visa Yet!
+            You didn't Applied to any Visa Yet!
           </h2>
           <Link to="/allVisas">
             <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">

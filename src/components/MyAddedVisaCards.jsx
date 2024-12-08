@@ -16,21 +16,24 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
     fee,
     validity,
     applicationMethod,
+    ageRestriction,
+    description,
   } = visa;
 
-  const [formData, setFormData] = useState({
-    countryImage: "",
-    countryName: "",
-    visaType: "Tourist visa",
-    processingTime: "",
-    requiredDocuments: [],
-    description: "",
-    ageRestriction: "",
-    fee: "",
-    validity: "",
-    applicationMethod: "",
-  });
+  // console.log("Visa", visa);
 
+  const [formData, setFormData] = useState({
+    countryImage: countryImage,
+    countryName: countryName,
+    visaType: visaType,
+    processingTime: processingTime,
+    requiredDocuments: [],
+    description: description,
+    ageRestriction: ageRestriction,
+    fee: fee,
+    validity: validity,
+    applicationMethod: applicationMethod,
+  });
   const [selectedVisa, setSelectedVisa] = useState(formData);
 
   const handleShowModal = (visa) => {
@@ -55,11 +58,9 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
   };
 
   const handleUpdate = (id) => {
-    // console.log("update", id);
-
     const modal = document.getElementById(`${_id}`);
     fetch(`https://visa-pilot-server.vercel.app/allVisas/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -68,6 +69,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
       .then((res) => res.json())
       .then((data) => {
         modal.close();
+        // console.log(data);
         if (data?.modifiedCount) {
           Swal.fire({
             icon: "success",
@@ -76,9 +78,10 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
             timer: 1500,
           });
           setLoader(true);
-          setMyVisa(formData && formData);
+          setMyVisa(formData);
         }
       });
+    setLoader(false);
   };
 
   // delete
@@ -183,7 +186,6 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                 </form>
                 <div className="space-y-2 text-center">
                   <h1 className="font-bold text-2xl">Visa Updating Form</h1>
-                  {/* <h1 className="font-bold text-2xl">{selectedVisa._id}</h1> */}
                   <p className="text-sm text-orange-400">
                     Ensure all fields are checked before submitting your
                     application.
@@ -203,6 +205,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <input
                       type="url"
                       name="countryImage"
+                      defaultValue={selectedVisa.countryImage}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                       placeholder="Enter image URL"
@@ -217,6 +220,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <input
                       type="text"
                       name="countryName"
+                      defaultValue={selectedVisa.countryName}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                       placeholder="Enter country name"
@@ -231,7 +235,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <select
                       name="visaType"
                       onChange={handleInputChange}
-                      value={formData.visaType}
+                      defaultValue={selectedVisa.visaType}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                     >
                       <option value="Tourist Visa">Tourist Visa</option>
@@ -248,6 +252,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <input
                       type="text"
                       name="processingTime"
+                      defaultValue={selectedVisa.processingTime}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                       placeholder="e.g., 10-15 business days"
@@ -302,6 +307,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     </label>
                     <textarea
                       name="description"
+                      defaultValue={selectedVisa.description}
                       onChange={handleInputChange}
                       rows="4"
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
@@ -315,8 +321,9 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                       Age Restriction
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       name="ageRestriction"
+                      defaultValue={selectedVisa.ageRestriction}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                       placeholder="Enter minimum age"
@@ -329,8 +336,9 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                       Fee
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       name="fee"
+                      defaultValue={selectedVisa.fee}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
                       placeholder="Enter visa fee"
@@ -345,9 +353,10 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <input
                       type="text"
                       name="validity"
+                      defaultValue={selectedVisa.validity}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
-                      placeholder="e.g., 6 months"
+                      placeholder="e.g. 6 months"
                     />
                   </div>
 
@@ -359,9 +368,10 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
                     <input
                       type="text"
                       name="applicationMethod"
+                      defaultValue={selectedVisa.applicationMethod}
                       onChange={handleInputChange}
                       className="mt-1 block w-full border-gray-300 rounded-none shadow-sm focus:border-cyan-500 focus:ring-cyan-500 p-4"
-                      placeholder="e.g., Online or in-person"
+                      placeholder="e.g. Online or in-person"
                     />
                   </div>
 
