@@ -173,7 +173,7 @@ const Header = () => {
         className={` ${
           mobileSidebarOpen
             ? "translate-x-0 opacity-100 z-20"
-            : "translate-x-[200px] opacity-0 z-[-1]"
+            : "translate-x-0 opacity-0 z-[-1]"
         } xl:hidden bg-white dark:bg-slate-800 boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-300`}
       >
         <ul className="items-center gap-12 text-[1rem] text-gray-600 dark:text-gray-100 flex flex-col text-xl">
