@@ -25,7 +25,7 @@ const VisaCards = ({ visa }) => {
       />
 
       {/*  text  */}
-      <div className="absolute top-[62%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex justify-center items-center flex-col bg-transparent backdrop-blur-sm">
+      <div className="absolute top-[68%] transform group-hover:translate-y-[-50%] transition-all duration-500 w-full h-full left-0 z-20 right-0 flex justify-center items-center flex-col bg-transparent backdrop-blur-sm">
         <h1 className="text-[1.5rem] font-extrabold text-white">
           {countryName}
         </h1>

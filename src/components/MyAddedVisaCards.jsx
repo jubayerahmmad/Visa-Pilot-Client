@@ -70,7 +70,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
       .then((res) => res.json())
       .then((data) => {
         modal.close();
-        console.log(data);
+        // console.log(data);
         if (data?.modifiedCount) {
           Swal.fire({
             icon: "success",

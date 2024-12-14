@@ -35,7 +35,7 @@ const Slider = () => {
       >
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/SP9Hk8p/jad-limcaco-NT1m-JPgni6-A-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -64,7 +64,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/7zkq8Kc/sebastian-enrique-Tlqm4w9-LO3k-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -93,7 +93,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/B4Cr3fY/ferdinand-stohr-Pe-Fk7fzx-Tdk-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -122,7 +122,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/q9KJrTt/srikant-sahoo-r2-L6v-CKa-VRk-unsplash.jpg")`,
               backgroundPosition: "center",
