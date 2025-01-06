@@ -28,11 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/visaDetails/:id",
-        element: (
-          <PrivateRoute>
-            <VisaDetails></VisaDetails>
-          </PrivateRoute>
-        ),
+        element: <VisaDetails></VisaDetails>,
         loader: ({ params }) =>
           fetch(`https://visa-pilot-server.vercel.app/allVisas/${params.id}`),
       },

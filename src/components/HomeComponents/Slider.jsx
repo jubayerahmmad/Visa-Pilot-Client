@@ -35,7 +35,7 @@ const Slider = () => {
       >
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[750px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/SP9Hk8p/jad-limcaco-NT1m-JPgni6-A-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -43,10 +43,10 @@ const Slider = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-black opacity-65 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 space-y-2 p-4">
+            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-montserrat">
                 Explore the World with Ease
               </h2>
@@ -64,7 +64,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[750px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/7zkq8Kc/sebastian-enrique-Tlqm4w9-LO3k-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -72,10 +72,10 @@ const Slider = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-black opacity-65 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex space-y-2 p-4 flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="flex space-y-2 p-4 flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-montserrat">
                 Seamless Visa Solutions
               </h2>
@@ -93,7 +93,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[750px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/B4Cr3fY/ferdinand-stohr-Pe-Fk7fzx-Tdk-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -101,10 +101,10 @@ const Slider = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-black opacity-65 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex justify-center items-center space-y-2 p-4 flex-col w-full h-full text-white text-4xl font-bold relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="flex justify-center items-center space-y-2 p-4 flex-col w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-montserrat">
                 Unlock Your Travel Dreams
               </h2>
@@ -122,7 +122,7 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group hover:scale-110 transition duration-500"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[750px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/q9KJrTt/srikant-sahoo-r2-L6v-CKa-VRk-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -130,10 +130,10 @@ const Slider = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-black opacity-65 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex justify-center items-center space-y-2 p-4 flex-col w-full h-full text-white text-4xl font-bold relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="flex justify-center items-center space-y-2 p-4 flex-col w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-montserrat">
                 Discover the Beauty of Nature
               </h2>

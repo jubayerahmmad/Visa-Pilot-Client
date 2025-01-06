@@ -31,16 +31,13 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="bg-white dark:bg-slate-950 py-16 px-8 md:px-20">
-      <div className="w-11/12 mx-auto text-center">
-        <h2
-          className="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-8 font-montserrat"
-          data-aos="fade-right"
-        >
+    <section className="bg-white dark:bg-slate-950">
+      <div className="max-w-7xl mx-auto py-8 px-4 md:px-12">
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-2 underline underline-offset-4 font-montserrat animate__animated animate__fadeInDown">
           How It Works
         </h2>
         <p
-          className="text-lg text-gray-600 dark:text-gray-300 mb-12 font-lato"
+          className="text-lg text-gray-600 dark:text-gray-300 mb-6 font-lato"
           data-aos="fade-right"
         >
           Follow these simple steps to apply for the Visa Pilot Program and
@@ -50,14 +47,14 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-gray-100 dark:bg-slate-800 p-8 rounded-lg shadow-md"
+              className="flex flex-col bg-gray-100 dark:bg-slate-800 p-8 rounded-lg shadow-md"
               data-aos="flip-left"
             >
               <div className="text-5xl mb-4">{step.icon}</div>
               <h3 className="text-2xl font-semibold text-gray-700 dark:text-gray-50 mb-4 font-montserrat">
                 {step.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-center font-lato">
+              <p className="text-gray-600 dark:text-gray-400 font-lato">
                 {step.description}
               </p>
             </div>

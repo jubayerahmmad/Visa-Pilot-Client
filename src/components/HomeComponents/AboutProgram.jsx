@@ -1,6 +1,6 @@
 const AboutProgram = () => {
   return (
-    <section className="bg-gray-50 dark:bg-slate-950 py-16 px-8 md:px-20">
+    <section className="bg-gray-50 dark:bg-slate-950 py-10 px-8 md:px-20">
       <div className="max-w-7xl mx-auto">
         <h2
           className="text-4xl font-bold text-gray-800 dark:text-gray-300 text-center mb-8 font-montserrat"

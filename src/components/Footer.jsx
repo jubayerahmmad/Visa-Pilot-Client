@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import logo from "../assets/visapilot-logo.png";
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-gray-100 dark:bg-slate-800 p-10">
+    <footer className="footer footer-center bg-blue-200 dark:bg-slate-800 p-10">
       <aside>
         <img className="w-48" src={logo} alt="" />
 
