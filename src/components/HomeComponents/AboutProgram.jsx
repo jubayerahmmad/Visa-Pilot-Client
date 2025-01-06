@@ -1,17 +1,11 @@
 const AboutProgram = () => {
   return (
-    <section className="bg-gray-50 dark:bg-slate-950 py-10 px-8 md:px-20">
-      <div className="max-w-7xl mx-auto">
-        <h2
-          className="text-4xl font-bold text-gray-800 dark:text-gray-300 text-center mb-8 font-montserrat"
-          data-aos="fade-right"
-        >
-          About the <span className="text-cyan-400">Visa Pilot</span> Program
+    <section className="bg-gray-50 dark:bg-slate-950">
+      <div className="max-w-7xl mx-auto py-8 px-4 md:px-12">
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-300 mb-2 font-montserrat underline underline-offset-8 animate__animated animate__fadeInDown">
+          About <span className="text-cyan-400">Visa Pilot</span>
         </h2>
-        <p
-          className="text-lg text-gray-600 dark:text-gray-400 text-center mb-6 font-lato"
-          data-aos="fade-right"
-        >
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 font-lato">
           The Visa Pilot Program offers a streamlined process for individuals
           seeking international opportunities. Our goal is to make visa
           applications fast, easy, and accessible.
