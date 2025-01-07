@@ -57,11 +57,12 @@ const Header = () => {
           <NavLink to="/allVisas">
             <li className="hover:text-[#3B9DF8]">All Visa</li>
           </NavLink>
-          <NavLink to="/addVisa">
-            <li className="hover:text-[#3B9DF8]">Add Visa</li>
-          </NavLink>
+
           {user && (
             <>
+              <NavLink to="/addVisa">
+                <li className="hover:text-[#3B9DF8]">Add Visa</li>
+              </NavLink>
               <NavLink to="/myAddedVisas">
                 <li className="hover:text-[#3B9DF8]">My Visa</li>
               </NavLink>
@@ -86,41 +87,32 @@ const Header = () => {
 
           {user ? (
             <>
-              <div className="avatar cursor-pointer">
+              <div className="dropdown dropdown-end">
                 <div
-                  className="ring-cyan-400 ring-offset-base-100 w-6 lg:w-10 rounded-full ring ring-offset-2"
-                  data-tooltip-id="avatar-tooltip"
-                  data-tooltip-offset={10}
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
                 >
-                  <img
-                    src={`${user.photoURL ? user.photoURL : <FaUser></FaUser>}`}
-                  />
+                  <div className="w-8 lg:w-10 rounded-full ring-2 ring-cyan-500">
+                    <img
+                      alt="user image"
+                      referrerPolicy="no-refferer"
+                      src={user?.photoURL}
+                    />
+                  </div>
                 </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-30 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <a className="text-cyan-600">{user?.displayName}</a>
+                  </li>
+                  <li>
+                    <button onClick={handleLogOut}>Logout</button>
+                  </li>
+                </ul>
               </div>
-              {/* Tooltip with dropdown */}
-              <Tooltip
-                id="avatar-tooltip"
-                place="right"
-                className="z-50"
-                clickable={true}
-                effect="solid"
-                delayHide={100}
-                offset={{ right: 20 }}
-              >
-                <div className="bg-white border border-gray-200 rounded shadow-lg w-40 p-4">
-                  <p className="text-gray-700 font-semibold mb-2">
-                    {user.displayName}
-                  </p>
-                  <Link>
-                    <button
-                      onClick={handleLogOut}
-                      className="btn btn-sm w-full lg:btn-md dark:border-none dark:outline-none font-semibold text-lg  bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 "
-                    >
-                      Log Out
-                    </button>
-                  </Link>
-                </div>
-              </Tooltip>
             </>
           ) : (
             <>
@@ -169,45 +161,20 @@ const Header = () => {
                 All Visa
               </li>
             </NavLink>
-            <NavLink to="/addVisa">
-              <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
-                Add Visa
-              </li>
-            </NavLink>
+
             {user && (
               <>
+                <NavLink to="/addVisa">
+                  <li className="hover:border-b-[#3B9DF8] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+                    Add Visa
+                  </li>
+                </NavLink>
                 <NavLink to="/myAddedVisas">
                   <li className="hover:text-[#3B9DF8]">My Visa</li>
                 </NavLink>
                 <NavLink to="/myVisaApplicaton">
                   <li className="hover:text-[#3B9DF8]">My Applications</li>
                 </NavLink>
-              </>
-            )}
-            {user ? (
-              <>
-                <Link>
-                  <button
-                    onClick={handleLogOut}
-                    className="btn btn-sm lg:btn-md dark:border-none dark:outline-none font-semibold text-lg rounded-md bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 "
-                  >
-                    Log Out
-                  </button>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link to="/login">
-                  <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-md dark:border-none dark:outline-none bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
-                    Login
-                  </button>
-                </Link>
-
-                <Link to="/register">
-                  <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-md dark:border-none dark:outline-none bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
-                    Register
-                  </button>
-                </Link>
               </>
             )}
           </ul>

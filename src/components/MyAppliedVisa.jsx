@@ -1,8 +1,6 @@
 import Swal from "sweetalert2";
 
 const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
-  // console.log("Applied Users", visa);
-
   const {
     _id,
     fName,
@@ -10,11 +8,9 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
     email,
     countryImage,
     countryName,
-    validity,
     visaType,
     applicationMethod,
     fee,
-    processingTime,
   } = visa;
 
   const handleCancel = (id) => {

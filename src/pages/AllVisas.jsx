@@ -14,7 +14,7 @@ const AllVisas = () => {
   // console.log(filteredVisas);
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto p-4">
       <h1 className="text-4xl dark:text-gray-200 font-semibold animate__animated animate__fadeInDown text-center my-6 font-montserrat">
         Check All Visa
       </h1>

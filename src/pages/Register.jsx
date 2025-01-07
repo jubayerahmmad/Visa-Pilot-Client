@@ -77,19 +77,21 @@ const Register = () => {
   };
 
   return (
-    <div className="p-6 font-montserrat w-10/12 mx-auto rounded-2xl my-8  border border-cyan-500 shadow-md">
-      <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-200 mb-4">
-        Register Now
-      </h2>
-      <p className="font-semibold text-center dark:text-gray-400 mb-4">
-        Already Have an Account?{" "}
-        <Link to="/login">
-          <span className="font-bold text-cyan-500">Login</span>
-        </Link>
-      </p>
+    <div className="p-6 font-montserrat w-10/12 mx-auto rounded my-8  border border-cyan-500 shadow-md">
       <div className="lg:flex items-center justify-center">
         {/* Form */}
         <div className="lg:w-1/2 lg:p-8">
+          <div>
+            <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-200 mb-4">
+              Register Now
+            </h2>
+            <p className="font-semibold text-center dark:text-gray-400 mb-4">
+              Already Have an Account?{" "}
+              <Link to="/login">
+                <span className="font-bold text-cyan-500">Login</span>
+              </Link>
+            </p>
+          </div>
           <form onSubmit={handleRegister} className="space-y-6">
             {/* Name Input */}
             <div>
@@ -161,7 +163,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="w-full btn border-none bg-cyan-400 text-white py-3 rounded-full hover:bg-cyan-500"
+                className="w-full btn border-none bg-cyan-400 text-white py-3 rounded-lg hover:bg-cyan-500"
               >
                 Register
               </button>
@@ -174,7 +176,7 @@ const Register = () => {
             <button
               type="submit"
               onClick={handleGoogleLogin}
-              className="w-full btn btn-outline dark:text-gray-300 py-3 rounded-full"
+              className="w-full btn btn-outline dark:text-gray-300 py-3 rounded-lg"
             >
               <FaGoogle></FaGoogle>Register with Google
             </button>

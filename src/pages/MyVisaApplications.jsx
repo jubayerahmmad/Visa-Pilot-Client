@@ -29,7 +29,7 @@ const MyVisaApplications = () => {
   }, [search]);
 
   return (
-    <div>
+    <div className="p-6">
       <h1 className="text-4xl font-semibold dark:text-gray-200 text-center my-6 font-montserrat">
         My Visa Applications
       </h1>
@@ -47,30 +47,30 @@ const MyVisaApplications = () => {
         </span>
       </div>
 
-      <div className="relative max-w-7xl mx-auto overflow-x-auto shadow-md sm:rounded-lg my-10">
-        <table className="w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100">
-          <thead className="text-xs text-white uppercase bg-cyan-600 dark:bg-cyan-700 dark:text-white">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Country
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Applicant's Details
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Visa Type
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Fee
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {myAppliedVisa?.length > 0 ? (
-              <>
+      <div>
+        {myAppliedVisa?.length > 0 ? (
+          <div className="relative max-w-7xl mx-auto overflow-x-auto shadow-md sm:rounded-lg my-10">
+            <table className="w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100">
+              <thead className="text-xs text-white uppercase bg-cyan-600 dark:bg-cyan-700 dark:text-white">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    Country
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Applicant's Details
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Visa Type
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Fee
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
                 {myAppliedVisa?.map((visa) => (
                   <MyAppliedVisa
                     key={visa._id}
@@ -79,26 +79,28 @@ const MyVisaApplications = () => {
                     setMyAppliedVisa={setMyAppliedVisa}
                   ></MyAppliedVisa>
                 ))}
-              </>
-            ) : (
-              <div className="flex flex-col items-center justify-center my-6 space-y-6">
-                <Lottie
-                  animationData={noDataAnimation}
-                  autoplay={true}
-                  className="h-96"
-                />
-                <h2 className="text-4xl text-center dark:text-gray-200 p-2 font-bold">
-                  You didn't Applied to any Visa Yet!
-                </h2>
-                <Link to="/allVisas">
-                  <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">
-                    Go to All Visas
-                  </button>
-                </Link>
-              </div>
-            )}
-          </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="lg:flex items-center justify-center my-6 space-y-6">
+            <Lottie
+              animationData={noDataAnimation}
+              autoplay={true}
+              className="h-96"
+            />
+            <div>
+              <h2 className="text-4xl dark:text-gray-200 my-3 font-bold">
+                You didn't Applied to any Visa Yet!
+              </h2>
+              <Link to="/allVisas">
+                <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">
+                  Go to All Visas
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
