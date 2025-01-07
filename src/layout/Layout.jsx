@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import DarkButton from "../components/DarkButton";
 
 const Layout = () => {
   useEffect(() => {
@@ -16,6 +17,9 @@ const Layout = () => {
       <Header></Header>
       <div className="flex-grow dark:bg-slate-900">
         <Outlet></Outlet>
+      </div>
+      <div>
+        <DarkButton></DarkButton>
       </div>
       <Footer></Footer>
     </div>

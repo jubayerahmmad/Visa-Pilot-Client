@@ -34,7 +34,6 @@ const AddVisa = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(formData);
 
     fetch("https://visa-pilot-server.vercel.app/allVisas", {
       method: "POST",
@@ -69,7 +68,7 @@ const AddVisa = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-8 my-6 bg-white dark:bg-slate-800 shadow-lg rounded-lg font-montserrat">
+    <div className="max-w-5xl mx-auto p-8 my-6 bg-white dark:bg-slate-800 shadow-2xl rounded-lg font-montserrat">
       <h2 className="text-2xl dark:text-gray-200 font-bold text-center">
         Add Visa
       </h2>
@@ -78,7 +77,6 @@ const AddVisa = () => {
       </p>
 
       {/* Form */}
-
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Country Image */}
         <div>

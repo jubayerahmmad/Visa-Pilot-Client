@@ -78,31 +78,3 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
 };
 
 export default MyAppliedVisa;
-{
-  /* <tr className="bg-blue-200 dark:bg-gray-900 text-gray-800 dark:text-blue-100 border-b border-blue-400">
-  <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
-    <img
-      className="w-10 h-10 rounded-full"
-      src={countryImage}
-      alt="Jese image"
-    />
-    <div className="ps-3">
-      <h3 className="text-base font-semibold">{countryName}</h3>
-      <p className="font-normal text-gray-500">{applicationMethod}</p>
-    </div>
-  </th>
-  <td className="px-6 py-4 font-medium">
-    <div className="ps-3">
-      <h3 className="text-base font-semibold">{`${fName}  ${lName}`}</h3>
-      <p className="font-normal text-gray-500">{email}</p>
-    </div>
-  </td>
-  <td className="px-6 py-4 font-medium">{visaType}</td>
-  <td className="px-6 py-4 font-medium">{fee}</td>
-  <td className="px-6 py-4">
-    <a className="font-medium text-black dark:text-blue-100 hover:underline">
-      Cancel
-    </a>
-  </td>
-</tr>; */
-}

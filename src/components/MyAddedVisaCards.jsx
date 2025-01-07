@@ -118,69 +118,47 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
   };
 
   return (
-    <div className="font-montserrat">
-      <div className="card bg-base-100 dark:bg-slate-800 shadow-xl">
-        <figure>
+    <>
+      <tr className="bg-blue-200 dark:bg-gray-900 text-gray-800 dark:text-blue-100 border-b border-blue-400">
+        <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
           <img
-            className="h-64 w-full object-cover"
+            className="w-10 h-10 rounded-full"
             src={countryImage}
-            alt="name"
+            alt="Jese image"
           />
-        </figure>
-        <div className="card-body dark:text-gray-300">
-          {/* Country Name */}
-          <h2 className="text-3xl font-bold mb-4">{countryName}</h2>
-
-          {/* Visa Type */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Visa Type:</span> {visaType}
-          </p>
-
-          {/* Processing Time */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Processing Time:</span>{" "}
-            {processingTime}
-          </p>
-          {/* Fee */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Fee:</span> ${fee}
-          </p>
-
-          {/* Validity */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Validity:</span> {validity}
-          </p>
-
-          {/* Application Method */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Application Method:</span>{" "}
-            {applicationMethod}
-          </p>
-          <div className="card-actions">
-            <button
-              onClick={() => handleShowModal(visa)}
-              className="btn border-none bg-cyan-500 hover:bg-cyan-700 text-white"
-            >
-              <BiEditAlt size={28}></BiEditAlt> Edit
-            </button>
-            <button
-              onClick={() => handleDelete(_id)}
-              className="btn border-none bg-red-500 hover:bg-red-700 text-white"
-            >
-              <RiDeleteBin7Fill size={28}></RiDeleteBin7Fill> Delete
-            </button>
+          <div className="ps-3">
+            <h3 className="text-base font-semibold">{countryName}</h3>
+            <p className="font-normal text-gray-500">{applicationMethod}</p>
           </div>
-        </div>
-      </div>
+        </th>
+        <td className="px-6 py-4 font-medium">{processingTime}</td>
+        <td>{validity}</td>
+        <td className="px-6 py-4 font-medium">{visaType}</td>
+        <td className="px-6 py-4 font-medium">${fee}</td>
+        <td className="px-6 py-4">
+          <button
+            onClick={() => handleShowModal(visa)}
+            className="font-medium text-black dark:text-blue-100 mr-4 hover:underline"
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="font-medium text-black dark:text-blue-100 mr-4 hover:underline"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
 
       {/* Modal */}
       <div>
         <dialog id={_id} className="modal">
           {selectedVisa && (
-            <div className="modal-box p-4">
+            <div className="modal-box p-4 text-black">
               <div className="modal-action flex-col space-y-4">
                 <form method="dialog">
-                  <button className="btn float-end btn-circle">
+                  <button className="float-end">
                     <RxCross1 size={24}></RxCross1>
                   </button>
                 </form>
@@ -388,7 +366,7 @@ const MyAddedVisaCards = ({ visa, myVisa, setMyVisa }) => {
           )}
         </dialog>
       </div>
-    </div>
+    </>
   );
 };
 

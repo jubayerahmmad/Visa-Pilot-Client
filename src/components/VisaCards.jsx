@@ -16,7 +16,7 @@ const VisaCards = ({ visa }) => {
   return (
     <div className="w-full relative rounded-md overflow-hidden shadow-xl group border font-lato">
       {/* badge */}
-      <span className="badge badge-lg badge-info text-slate-950 absolute top-3 right-3">
+      <span className="badge badge-lg badge-info z-20 text-slate-950 absolute top-3 right-3">
         {applicationMethod}
       </span>
 

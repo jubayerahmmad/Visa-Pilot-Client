@@ -7,27 +7,10 @@ import { AuthContext } from "../providers/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 import Swal from "sweetalert2";
-import { FaUser } from "react-icons/fa6";
-import { Tooltip } from "react-tooltip";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const Header = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const { user } = useContext(AuthContext);
-
-  const [isDarkMode, setIsDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark"
-  );
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDarkMode]);
 
   const handleLogOut = () => {
     signOut(auth)
@@ -45,8 +28,8 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full bg-blue-200 dark:bg-slate-800">
-      <nav className="flex items-center justify-between relative lg:w-10/12 mx-auto boxShadow font-montserrat">
+    <div className="w-full bg-blue-200 sticky top-0 z-10 dark:bg-slate-800">
+      <nav className="flex items-center justify-between relative w-11/12 lg:w-10/12 mx-auto boxShadow font-montserrat">
         <Link to="/">
           <img src={logo} alt="logo" className="w-20 lg:w-32 object-cover" />
         </Link>
@@ -74,17 +57,6 @@ const Header = () => {
         </ul>
 
         <div className="items-center gap-[10px] flex">
-          <button
-            className=" dark:text-gray-200 p-1 lg:p-2 border border-blue-800 rounded-full"
-            onClick={() => setIsDarkMode((prev) => !prev)}
-          >
-            {isDarkMode ? (
-              <MdOutlineLightMode size={20}></MdOutlineLightMode>
-            ) : (
-              <MdOutlineDarkMode size={20}></MdOutlineDarkMode>
-            )}
-          </button>
-
           {user ? (
             <>
               <div className="dropdown dropdown-end">
@@ -117,13 +89,13 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">
-                <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-md border-none outline-none bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
+                <button className="btn btn-sm font-semibold text-lg rounded-md border-none outline-none bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
                   Login
                 </button>
               </Link>
 
               <Link to="/register">
-                <button className="btn btn-sm lg:btn-md font-semibold text-lg rounded-md border-none outline-none bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
+                <button className="btn btn-sm font-semibold text-lg rounded-md border-none outline-none bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 ">
                   Register
                 </button>
               </Link>
