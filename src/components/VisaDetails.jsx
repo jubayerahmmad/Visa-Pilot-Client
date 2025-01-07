@@ -72,84 +72,87 @@ const VisaDetails = () => {
 
   return (
     <div className="container mx-auto p-8 font-montserrat">
-      <div className="bg-white dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden">
+      <div className="card lg:card-side gap-2 items-center bg-white dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden">
         {/* Country Image */}
-        <img
-          src={countryImage}
-          alt=""
-          className="w-full h-96 lg:h-[600px] object-cover"
-        />
-
-        <div className="p-6 dark:text-gray-300">
-          {/* Country Name */}
-          <h2 className="text-3xl font-bold mb-4">{countryName}</h2>
-
-          {/* Visa Type */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Visa Type:</span> {visaType}
-          </p>
-
-          {/* Processing Time */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Processing Time:</span>{" "}
-            {processingTime}
-          </p>
-
-          {/* Required Documents */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Required Documents:</span>
-          </p>
-          <ul className="list-disc list-inside mb-4">
-            {requiredDocuments.map((doc, index) => (
-              <li key={index} className="text-gray-700 dark:text-gray-400">
-                {doc}
-              </li>
-            ))}
-          </ul>
-
-          {/* Description */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Description:</span>
-          </p>
-          <p className="text-gray-700 dark:text-gray-400 mb-4">{description}</p>
-
-          {/* Age Restriction */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Age Restriction:</span>{" "}
-            {ageRestriction} years
-          </p>
-
-          {/* Fee */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Fee:</span> ${fee}
-          </p>
-
-          {/* Validity */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Validity:</span> {validity}
-          </p>
-
-          {/* Application Method */}
-          <p className="text-lg font-medium mb-2">
-            <span className="font-semibold">Application Method:</span>{" "}
-            {applicationMethod}
-          </p>
-
-          {/* Apply Button */}
-          <button
-            onClick={() => document.getElementById("my_modal_5").showModal()}
-            className="btn border-none rounded-full mt-6 bg-cyan-500 text-white px-6 py-3 hover:bg-cyan-600"
-          >
-            Apply for Visa
-          </button>
+        <div className="lg:w-2/5">
+          <img
+            src={countryImage}
+            alt="countryImage"
+            className="w-full h-full object-cover"
+          />
         </div>
+        {/* Country details */}
+        <div className="lg:w-3/5">
+          <div className="p-6 dark:text-gray-300">
+            <div className="flex items-center gap-4 mb-4">
+              {/* Country Name */}
+              <h2 className="text-3xl font-bold">{countryName}</h2>
+              {/* Visa Type */}
+              <p className="text-lg font-semibold badge badge-info badge-lg">
+                {visaType}
+              </p>
+              {/* Fee */}
+              <p className="text-lg font-bold italic">${fee}</p>
+            </div>
 
+            {/* Processing Time */}
+            <p className="text-lg font-medium mb-2">
+              <span className="font-semibold">Processing Time:</span>{" "}
+              {processingTime}
+            </p>
+
+            {/* Required Documents */}
+            <p className="text-lg font-medium mb-2">
+              <span className="font-semibold">Required Documents:</span>
+            </p>
+            <ul className="list-disc list-inside mb-4">
+              {requiredDocuments.map((doc, index) => (
+                <li key={index} className="text-gray-700 dark:text-gray-400">
+                  {doc}
+                </li>
+              ))}
+            </ul>
+
+            {/* Description */}
+            <p className="text-lg font-medium mb-2">
+              <span className="font-semibold">Description:</span>
+            </p>
+            <p className="text-gray-700 dark:text-gray-400 mb-4">
+              {description}
+            </p>
+
+            {/* Age Restriction */}
+            <p className="text-lg font-medium mb-2">
+              <span className="font-semibold">Age Restriction:</span>
+              {ageRestriction} years
+            </p>
+
+            {/* Validity */}
+            <p className="text-lg font-medium mb-2">
+              <span className="font-semibold">Validity:</span> {validity}
+            </p>
+
+            {/* Application Method */}
+            <p className="text-lg font-medium mb-2">
+              <span className="font-semibold">Application Method:</span>{" "}
+              {applicationMethod}
+            </p>
+
+            {/* Apply Button */}
+            <button
+              onClick={() => document.getElementById("my_modal_5").showModal()}
+              className="btn border-none rounded-full mt-6 bg-cyan-500 text-white px-6 py-3 hover:bg-cyan-600"
+            >
+              Apply for Visa
+            </button>
+          </div>
+        </div>
         {/* Modal */}
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
           <div className="modal-box p-4">
             <div className="modal-action flex-col space-y-4">
               <form method="dialog">
-                <button className="btn float-end btn-circle">
+                <button className="float-end">
                   <RxCross1 size={24}></RxCross1>
                 </button>
               </form>

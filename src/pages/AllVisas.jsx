@@ -14,16 +14,17 @@ const AllVisas = () => {
   // console.log(filteredVisas);
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <h1 className="text-4xl dark:text-gray-200 font-semibold animate__animated animate__fadeInDown text-center my-6 font-montserrat">
         Check All Visa
       </h1>
 
-      <div className="flex justify-center animate__animated animate__fadeInUp">
+      <div className="flex items-center justify-end gap-4 animate__animated animate__fadeInUp  mb-6">
+        <p className="dark:text-white">Sort By:</p>
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="p-4 mb-6 bg-cyan-500 text-white rounded-xl font-bold cursor-pointer"
+          className="px-4 py-2 bg-cyan-500 text-white rounded-xl font-bold cursor-pointer"
         >
           <option className="text-xl" value="All">
             All
@@ -40,7 +41,7 @@ const AllVisas = () => {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-11/12 mx-auto mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-6">
         {filteredVisas?.map((visa) => (
           <VisaCards key={visa._id} visa={visa}></VisaCards>
         ))}

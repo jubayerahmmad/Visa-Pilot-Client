@@ -5,7 +5,7 @@ const NewsletterForm = () => {
     <section className="bg-gray-50 dark:bg-slate-950 py-8">
       <div className="max-w-7xl mx-auto py-8 px-4 md:px-12 rounded-lg bg-gradient-to-br dark:from-gray-700 dark:via-slate-700 dark:to-gray-950 from-[#fffbfb] via-[#d0f3fc] to-blue-200 font-montserrat">
         <h1 className="text-3xl sm:text-5xl w-full sm:w-[60%] dark:text-white">
-          Subscibe to Our Newsletter
+          Subscribe to Our Newsletter
         </h1>
 
         <div className="w-full 1260px:flex-row flex-col flex items-start mt-4 justify-between gap-[30px]">

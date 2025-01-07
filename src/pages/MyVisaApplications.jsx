@@ -16,7 +16,7 @@ const MyVisaApplications = () => {
   const [search, setSearch] = useState("");
 
   // console.log(search);
-  // console.log(loggedUserAppliedVisa);
+  console.log(loggedUserAppliedVisa);
 
   useEffect(() => {
     fetch(`https://visa-pilot-server.vercel.app/appliedUsers?search=${search}`)
@@ -35,7 +35,7 @@ const MyVisaApplications = () => {
       </h1>
 
       {/* Search Bar */}
-      <div className="w-9/12 mx-auto relative my-6">
+      <div className="max-w-7xl mx-auto relative my-6">
         <input
           type="text"
           placeholder="Search..."
@@ -47,34 +47,59 @@ const MyVisaApplications = () => {
         </span>
       </div>
 
-      {myAppliedVisa?.length > 0 ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-10/12 mx-auto mb-6">
-          {myAppliedVisa?.map((visa) => (
-            <MyAppliedVisa
-              key={visa._id}
-              visa={visa}
-              myAppliedVisa={myAppliedVisa}
-              setMyAppliedVisa={setMyAppliedVisa}
-            ></MyAppliedVisa>
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-col items-center justify-center my-6 space-y-6">
-          <Lottie
-            animationData={noDataAnimation}
-            autoplay={true}
-            className="h-96"
-          />
-          <h2 className="text-4xl text-center dark:text-gray-200 p-2 font-bold">
-            You didn't Applied to any Visa Yet!
-          </h2>
-          <Link to="/allVisas">
-            <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">
-              Go to All Visas
-            </button>
-          </Link>
-        </div>
-      )}
+      <div className="relative max-w-7xl mx-auto overflow-x-auto shadow-md sm:rounded-lg my-10">
+        <table className="w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100">
+          <thead className="text-xs text-white uppercase bg-cyan-600 dark:bg-cyan-700 dark:text-white">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Country
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Applicant's Details
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Visa Type
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Fee
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {myAppliedVisa?.length > 0 ? (
+              <>
+                {myAppliedVisa?.map((visa) => (
+                  <MyAppliedVisa
+                    key={visa._id}
+                    visa={visa}
+                    myAppliedVisa={myAppliedVisa}
+                    setMyAppliedVisa={setMyAppliedVisa}
+                  ></MyAppliedVisa>
+                ))}
+              </>
+            ) : (
+              <div className="flex flex-col items-center justify-center my-6 space-y-6">
+                <Lottie
+                  animationData={noDataAnimation}
+                  autoplay={true}
+                  className="h-96"
+                />
+                <h2 className="text-4xl text-center dark:text-gray-200 p-2 font-bold">
+                  You didn't Applied to any Visa Yet!
+                </h2>
+                <Link to="/allVisas">
+                  <button className="btn border-none bg-cyan-500 text-white font-bold hover:bg-cyan-600">
+                    Go to All Visas
+                  </button>
+                </Link>
+              </div>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

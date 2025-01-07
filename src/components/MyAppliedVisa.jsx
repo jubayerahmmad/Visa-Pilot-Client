@@ -1,4 +1,3 @@
-import { MdCancel } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
@@ -50,69 +49,64 @@ const MyAppliedVisa = ({ visa, myAppliedVisa, setMyAppliedVisa }) => {
   };
 
   return (
-    <div className="font-montserrat">
-      <div className="card bg-base-100 dark:bg-slate-800 shadow-xl">
-        <figure>
-          <img
-            className="h-64 w-full object-cover"
-            src={countryImage}
-            alt="name"
-          />
-        </figure>
-        <div className="card-body dark:text-gray-300">
-          {/* Country Name */}
-          <h2 className="text-3xl text-white font-bold mb-4 p-4 rounded-sm bg-cyan-500 text-center">
-            {countryName}
-          </h2>
-
-          {/* Applicants name */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Applicant's Name:</span>{" "}
-            {`${fName} ${lName}`}
-          </p>
-
-          {/* Applicants name */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Applicant's Email:</span> {email}
-          </p>
-
-          {/* Visa Type */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Visa Type:</span> {visaType}
-          </p>
-
-          {/* Processing Time */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Processing Time:</span>{" "}
-            {processingTime}
-          </p>
-          {/* Fee */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Fee:</span> {fee}
-          </p>
-
-          {/* Validity */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Validity:</span> {validity}
-          </p>
-
-          {/* Application Method */}
-          <p className="text-lg font-medium mb-1">
-            <span className="font-semibold">Application Method:</span>{" "}
-            {applicationMethod}
-          </p>
-          <div className="card-actions">
-            <button
-              onClick={() => handleCancel(_id)}
-              className="btn border-none bg-red-500 hover:bg-red-700 text-white text-xl"
-            >
-              <MdCancel size={28}></MdCancel> Cancel
-            </button>
-          </div>
+    <tr className="bg-blue-200 dark:bg-gray-900 text-gray-800 dark:text-blue-100 border-b border-blue-400">
+      <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
+        <img
+          className="w-10 h-10 rounded-full"
+          src={countryImage}
+          alt="Jese image"
+        />
+        <div className="ps-3">
+          <h3 className="text-base font-semibold">{countryName}</h3>
+          <p className="font-normal text-gray-500">{applicationMethod}</p>
         </div>
-      </div>
-    </div>
+      </th>
+      <td className="px-6 py-4 font-medium">
+        <div className="ps-3">
+          <h3 className="text-base font-semibold">{`${fName}  ${lName}`}</h3>
+          <p className="font-normal text-gray-500">{email}</p>
+        </div>
+      </td>
+      <td className="px-6 py-4 font-medium">{visaType}</td>
+      <td className="px-6 py-4 font-medium">{fee}</td>
+      <td className="px-6 py-4">
+        <button
+          onClick={() => handleCancel(_id)}
+          className="font-medium text-black dark:text-blue-100 hover:underline"
+        >
+          Cancel
+        </button>
+      </td>
+    </tr>
   );
 };
 
 export default MyAppliedVisa;
+{
+  /* <tr className="bg-blue-200 dark:bg-gray-900 text-gray-800 dark:text-blue-100 border-b border-blue-400">
+  <th scope="row" class="flex items-center px-6 py-4 whitespace-nowrap">
+    <img
+      className="w-10 h-10 rounded-full"
+      src={countryImage}
+      alt="Jese image"
+    />
+    <div className="ps-3">
+      <h3 className="text-base font-semibold">{countryName}</h3>
+      <p className="font-normal text-gray-500">{applicationMethod}</p>
+    </div>
+  </th>
+  <td className="px-6 py-4 font-medium">
+    <div className="ps-3">
+      <h3 className="text-base font-semibold">{`${fName}  ${lName}`}</h3>
+      <p className="font-normal text-gray-500">{email}</p>
+    </div>
+  </td>
+  <td className="px-6 py-4 font-medium">{visaType}</td>
+  <td className="px-6 py-4 font-medium">{fee}</td>
+  <td className="px-6 py-4">
+    <a className="font-medium text-black dark:text-blue-100 hover:underline">
+      Cancel
+    </a>
+  </td>
+</tr>; */
+}
