@@ -20,7 +20,7 @@ const DarkButton = () => {
       {/* medium */}
       <div
         className={`${
-          isDarkMode ? " bg-[#3B9DF8]" : "bg-[#f0f0f0]"
+          isDarkMode ? " bg-[#3B9DF8]" : "bg-[#56585a]"
         } w-8 h-16 p-1 transition-colors duration-500 rounded-lg z-30 fixed`}
       >
         <div
