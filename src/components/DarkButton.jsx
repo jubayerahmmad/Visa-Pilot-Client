@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const DarkButton = () => {
   const [isDarkMode, setIsDarkMode] = useState(

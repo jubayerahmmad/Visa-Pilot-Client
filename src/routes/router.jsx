@@ -10,6 +10,8 @@ import Register from "../pages/Register";
 import NotFound from "../components/NotFound";
 import VisaDetails from "../components/VisaDetails";
 import PrivateRoute from "./PrivateRoute";
+import Faq from "../pages/Faq";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
         loader: () => fetch("https://visa-pilot-server.vercel.app/allVisas"),
       },
       {
+        path: "/faq",
+        element: <Faq />,
+      },
+      {
         path: "/visaDetails/:id",
         element: <VisaDetails></VisaDetails>,
         loader: ({ params }) =>
@@ -39,7 +45,6 @@ const router = createBrowserRouter([
             <MyAddedVisa></MyAddedVisa>
           </PrivateRoute>
         ),
-        // loader: () => fetch("https://visa-pilot-server.vercel.app/allVisas"),
       },
       {
         path: "/addVisa",
