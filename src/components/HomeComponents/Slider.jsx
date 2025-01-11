@@ -1,29 +1,21 @@
 // import Swiper core and required modules
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
+import { Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 const Slider = () => {
   return (
     <div>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        modules={[Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
         autoplay={{
-          delay: 3000, // Time between slides (in milliseconds)
+          delay: 5000, // Time between slides (in milliseconds)
           disableOnInteraction: false, // Keeps autoplay running even after interaction
         }}
-        navigation
         parallax={true} // Enable the parallax effect
         loop={true} // Enable infinite loop
         speed={500} // Slide transition speed

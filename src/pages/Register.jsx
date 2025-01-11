@@ -176,7 +176,7 @@ const Register = () => {
             <button
               type="submit"
               onClick={handleGoogleLogin}
-              className="w-full btn btn-outline dark:text-gray-300 py-3 rounded-lg"
+              className="w-full btn btn-outline text-cyan-400 hover:bg-cyan-400 hover:border-none py-3 rounded-lg"
             >
               <FaGoogle></FaGoogle>Register with Google
             </button>
